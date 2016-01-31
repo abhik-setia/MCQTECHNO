@@ -57,7 +57,7 @@
 			//Uncomment this to see the errors in the queries
 			if(!$result){
 				echo "Query has failed : ";
-				echo mysqli_error();
+				echo mysqli_error($this->connection);
 				return NULL;
 			}
 			return $result;

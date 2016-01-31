@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>
-      </title>
+      <title></title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/bootstrap.min.css" >
@@ -11,11 +10,11 @@
       <script src="js/timer.js" type="text/javascript"></script>
       <style type="text/css">
          .progressBar{
-         margin-top:6%;
-         position:relative;  
+            margin-top:6%;
+            position:relative;  
          }
          .spaceRadio{
-         margin-left:3%; 
+            margin-left:3%; 
          }
       </style>
    </head>
@@ -56,6 +55,7 @@
                </div>
             </div>
          </div>
+
          <form method="post" action="result.php">
             <div class="container-fluid">
                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
@@ -83,6 +83,7 @@
                            </div>
                         </div>
                      </div>
+
                      <div class="panel panel-default">
                         <div class="panel-heading">
                            <h4 class="panel-title">
@@ -106,6 +107,7 @@
                            </div>
                         </div>
                      </div>
+
                      <div class="panel panel-default">
                         <div class="panel-heading">
                            <h4 class="panel-title">

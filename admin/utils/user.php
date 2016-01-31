@@ -1,5 +1,5 @@
 <?php
-	require_once("../../includes/db_connect.php");
+	require_once("../includes/db_connect.php");
 
 	class User{
 		private $first_name, $last_name, $email, $phone_number, $marks_scored;
@@ -20,7 +20,7 @@
 		} 
 
 		public static function create_table($name){
-			$query_string = "CREATE TABLE IF NOT EXISTS" + $name + "_users" + "(
+			$query_string = "CREATE TABLE IF NOT EXISTS " . $name . "_users " . "(
 							  `first_name` varchar(30) NOT NULL,
 							  `last_name` varchar(30) NOT NULL,
 							  `email` varchar(30) NOT NULL,

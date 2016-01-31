@@ -1,5 +1,5 @@
 <?php
-	require_once("../../includes/db_connect.php");
+	require_once("../includes/db_connect.php");
 
 	class Question{
 		private $question_detail, $option1, $option2, $option3, $option4;
@@ -20,7 +20,7 @@
 		}
 
 		public static function create_table($name){
-			$query_string = "CREATE TABLE IF NOT EXISTS "+ $name + "_questions" + "(
+			$query_string = "CREATE TABLE IF NOT EXISTS ". $name . "_questions" . "(
 							  `question` text NOT NULL,
 							  `option1` text NOT NULL,
 							  `option2` text NOT NULL,

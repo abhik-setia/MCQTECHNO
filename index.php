@@ -1,123 +1,25 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
    <head>
       <title>
-      	TestName
       </title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="css/bootstrap.min.css" >
+      <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+      <script type="text/javascript " src="js/bootstrap.min.js"></script>
       <script src="js/timer.js" type="text/javascript"></script>
+      <style type="text/css">
+         .progressBar{
+         margin-top:6%;
+         position:relative;  
+         }
+         .spaceRadio{
+         margin-left:3%; 
+         }
+      </style>
    </head>
-   <style type="text/css">
-      .progressBar{
-      margin-top:6%;
-      position:relative;  
-      }
-      .spaceRadio{
-      margin-left:3%; 
-      }
-   </style>
    <body>
-||||||| merged common ancestors
-<head>
-	<title>
-		
-	</title>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
- 
- </head>
- <style type="text/css">
- .progressBar{
- 	margin-top:6%;
- 	position:relative;  
- }
- .spaceRadio{
- 	margin-left:3%; 
- }
- </style>
-<body>
-<div class="container-fluid">
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="brand" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
-       </a>
-      <a class="navbar-brand" href="#">TechSpardha</a>	
-    </div>
-    <!-- <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li> 
-        <li><a href="#">Page 3</a></li> 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div> -->
-  </div>
-=======
-<head>
-	<title>
-    Test Name
-	</title>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
- 
- </head>
- <style type="text/css">
- .progressBar{
- 	margin-top:6%;
- 	position:relative;  
- }
- .spaceRadio{
- 	margin-left:3%; 
- }
- </style>
-<body>
-<div class="container-fluid">
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="brand" href="#">
-                    <img src="http://placehold.it/150x50&text=Logo" alt="">
-       </a>
-      <a class="navbar-brand" href="#">TechSpardha</a>	
-    </div>
-    <!-- <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li> 
-        <li><a href="#">Page 3</a></li> 
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div> -->
-  </div>
->>>>>>> f6bbe263addaeea72c64ddf88fc1a144161893cf
-
       <div class="container-fluid">
          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
@@ -130,7 +32,7 @@
                   <a class="brand" href="#">
                   <img src="http://placehold.it/150x50&text=Logo" alt="">
                   </a>
-                  <a class="navbar-brand" href="#">TechSpardha</a>	
+                  <a class="navbar-brand" href="#">TechSpardha</a>  
                </div>
                <!-- <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav">
@@ -146,7 +48,6 @@
                   </div> -->
             </div>
          </nav>
-
          <div class="container progressBar col-lg-10 col-xs-10 col-sm-10 col-md-10">
             <div class="progress ">
                <div class="progress-bar progress-bar-striped active" role="progressbar"
@@ -155,12 +56,10 @@
                </div>
             </div>
          </div>
-
          <form method="post" action="result.php">
             <div class="container-fluid">
                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                   <div class="panel-group" id="accordion">
-
                      <div class="panel panel-default">
                         <div class="panel-heading">
                            <h4 class="panel-title">
@@ -184,7 +83,6 @@
                            </div>
                         </div>
                      </div>
-
                      <div class="panel panel-default">
                         <div class="panel-heading">
                            <h4 class="panel-title">
@@ -234,17 +132,13 @@
                   </div>
                </div>
                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                     <div class="container-fluid centered">
-                          <img src="images/clock.jpg">
-                           <div id='timer'></div>
-                           <script type="text/javascript">window.onload = CreateTimer("timer", 3000);
-                           </script>
-                           
-                     </div>
-
+                  <div class="container-fluid centered">
+                     <img src="images/clock.jpg">
+                     <div id='timer'></div>
+                     <script type="text/javascript">window.onload = CreateTimer("timer", 3000);</script>
                   </div>
+               </div>
             </div>
-
             <div class="container">
                <div class="row">
                   <ul class="pagination col-*-4 ">
@@ -257,7 +151,6 @@
                </div>
                <span class="pull-right"><button type="submit" class="btn btn-success">Submit</button></span>
             </div>
-
          </form>
       </div>
    </body>

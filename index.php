@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
    <head>
       <title>
       	TestName
@@ -21,6 +22,101 @@
       }
    </style>
    <body>
+||||||| merged common ancestors
+<head>
+	<title>
+		
+	</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ 
+ </head>
+ <style type="text/css">
+ .progressBar{
+ 	margin-top:6%;
+ 	position:relative;  
+ }
+ .spaceRadio{
+ 	margin-left:3%; 
+ }
+ </style>
+<body>
+<div class="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="brand" href="#">
+                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+       </a>
+      <a class="navbar-brand" href="#">TechSpardha</a>	
+    </div>
+    <!-- <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li> 
+        <li><a href="#">Page 3</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div> -->
+  </div>
+=======
+<head>
+	<title>
+    Test Name
+	</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+ 
+ </head>
+ <style type="text/css">
+ .progressBar{
+ 	margin-top:6%;
+ 	position:relative;  
+ }
+ .spaceRadio{
+ 	margin-left:3%; 
+ }
+ </style>
+<body>
+<div class="container-fluid">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="brand" href="#">
+                    <img src="http://placehold.it/150x50&text=Logo" alt="">
+       </a>
+      <a class="navbar-brand" href="#">TechSpardha</a>	
+    </div>
+    <!-- <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li> 
+        <li><a href="#">Page 3</a></li> 
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div> -->
+  </div>
+>>>>>>> f6bbe263addaeea72c64ddf88fc1a144161893cf
 
       <div class="container-fluid">
          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

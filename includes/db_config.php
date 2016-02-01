@@ -6,4 +6,5 @@
 	define('DB_SERVER', "localhost"); // db server
 	define('ADMIN_TABLE', "admin");	// admin table name
 	define('TESTS_TABLE', "test"); // test table name
+
 ?>

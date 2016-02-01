@@ -2,7 +2,7 @@
 	require_once("../includes/db_connect.php");
 	require_once("../includes/functions.php");
 	require_once("../includes/session.php");
-	require_once("utils/question.php");	
+	
 
 	if(isset($_GET["message"])){
 		$message = "The question has been added";
@@ -63,7 +63,7 @@
       	?>
       <div class="container">      	
          <div class="row centered-form">
-            <div class="col-xs-12 col-sm-7 col-md-7 col-sm-offset-2 ">
+            <div class="col-xs-12 col-sm-7 col-md-7 centering">
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h3 class="panel-title">Please Enter Question Details</h3>
@@ -116,7 +116,9 @@
                           <br>
 
                         </div>
-                        <input type="submit" value="Add Question" name="submit" class="btn  btn-lg btn-success col-lg-offset-4 col-md-offset-4">                        
+                        <center>
+                        <input type="submit" value="Add Question" name="submit" class="btn  btn-lg btn-success"> 
+                        </center>                       
                      </form>
                   </div>
                </div>

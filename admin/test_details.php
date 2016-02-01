@@ -58,17 +58,14 @@
       <link rel="stylesheet" href="../css/bootstrap.min.css" >
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
-      <script>
-		$(document).ready(function(){
-		    $('[data-toggle="tooltip"]').tooltip(); 
-		});
-</script>
+      <script type="text/javascript" src="../js/common.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
    </head>
    <body>
+   <?php include '../includes/header.php'; ?>
       <div class="container">
          <div class="row centered-form">
-            <div class="col-xs-12 col-sm-7 col-md-7 col-sm-offset-2 ">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 centering">
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h3 class="panel-title">Please Enter the Test details</h3>
@@ -78,7 +75,7 @@
                      <form role="form" method="post" action="">
 
                         <div class="row">
-                           <div class="col-xs-4 col-sm-4 col-md-4 col-lg-offset-3 col-md-offset-3">
+                           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                               <div class="form-group">
                                  <input type="text" name="test_name" id="test_name" class="form-control input-sm" placeholder="Test Name"/>
                               </div>
@@ -103,7 +100,7 @@
  -->
  						 <div class="row">
                            <div class="form-group">
-                              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-offset-3 col-md-offset-3">
+                              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                                  <a href="#" data-toggle="tooltip" title="Date of event">
                                  <input type="date" name="event_date" id="event_date" class="form-control input-sm" placeholder="Event Date"/>
                                  </a>
@@ -111,16 +108,18 @@
                            </div>
                         </div>
  
-                        <br>
+                        
                         <div class="row">
                            <div class="form-group">
-                              <div class="col-xs-4 col-sm-4 col-md-4 col-lg-offset-3 col-md-offset-3">
+                              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                                  <input type="number" name="duration" id="duration" class="form-control input-sm" placeholder="Duration(in mins)"/>
                               </div>
                            </div>
                         </div>
-                        <br>
-                        <input type="submit" value="Create Test" name="submit" class="btn btn-success col-lg-offset-4 col-md-offset-4">
+
+                          <center> 
+                        <input type="submit" value="Create Test" name="submit" class="btn btn-success">
+                        </center>
                      </form>
                   </div>
                </div>

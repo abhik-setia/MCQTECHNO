@@ -63,7 +63,7 @@
    <?php include("../includes/header.php"); ?>
       <div class="container">
          <div class="row centered-form">
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 ">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 centering ">
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h3 class="panel-title">Hello Admin , Please Login to continue</h3>
@@ -89,7 +89,9 @@
                         </div>
                         <div class="row">
                         	<div>
-                        	<input type="submit" value="Login" name="submit" class="btn btn-success col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
+                           <center>
+                        	<input type="submit" value="Login" name="submit" class="btn btn-success ">
+                           </center>
                         	</div>
                         </div>
 

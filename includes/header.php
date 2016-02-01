@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color:black">
             <div class="container-fluid">
                <div class="navbar-header">
                   <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
@@ -7,10 +7,10 @@
                   <span class="icon-bar"></span> 
                   </button>
                   <a class="brand" href="#">
-                  <img src="http://placehold.it/150x50&text=Logo" alt="">
+                  <img src="images/Techspardhalogo.png" alt="" width="20%">
                   </a>
                   <a class="navbar-brand" href="#">TechSpardha</a>  
-                  <span></span>
+                  
                </div>
                
                <!-- <div class="collapse navbar-collapse" id="myNavbar">

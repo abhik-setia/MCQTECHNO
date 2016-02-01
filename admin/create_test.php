@@ -28,7 +28,7 @@
    <center>
       <div class="container">
          <div class="row centered-form">
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-sm-offset-2 col-lg-offset-4 col-md-offset-4">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 centering">
                <div class="panel panel-default">
                   <div class="panel-heading">
                      <h3 class="panel-title">Hello Admin</h3>
@@ -37,17 +37,17 @@
                   
                      <form role="form" method="post" action="">
                          <div class="row">
-                           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering ">
                               <div class="form-group">
-                                <a class="btn btn-success col-lg-8 col-xs-8 col-md-8 col-sm-8 col-lg-offset-8 col-md-offset-8 col-sm-offset-8" href="test_details.php">Create Test</a>
+                                <a class="btn btn-success col-lg-8 col-xs-8 col-md-8 col-sm-8 centering" href="test_details.php">Create Test</a>
                                </div>
                            </div>
                         </div>
                         <br>
                          <div class="row">
-                           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                           <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                               <div class="form-group">
-                                 <a class="btn btn-info col-lg-8 col-xs-8 col-md-8 col-sm-8 col-lg-offset-8 col-md-offset-8 col-sm-offset-8" href="#">View Test</a>
+                                 <a class="btn btn-info col-lg-8 col-xs-8 col-md-8 col-sm-8 centering" href="#">View Test</a>
                               </div>
                            </div>
                         </div>

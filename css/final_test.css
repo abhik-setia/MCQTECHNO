@@ -1,0 +1,29 @@
+ 		.progressBar{
+            margin-left:1%;
+            position:relative;  
+         }
+         .spaceRadio{
+            margin-left:3%; 
+         }
+         .spaceButton{
+        		margin-left:10%; 
+         }
+         .spaceReset{
+            margin-left: 78%;
+            margin-bottom:2%;
+
+         }
+         .fixed {
+                 position: fixed;
+                 width: 27%;
+                 margin-top:0%; 
+                 margin-left:70%; 
+                 
+         }
+         .scrollit {
+                 float: left;
+                 width: 68%
+         }
+         .backgroundMe{
+         	background-color:lightgrey; 
+         }

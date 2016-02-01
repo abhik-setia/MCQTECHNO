@@ -36,4 +36,43 @@
 		return $message_box;
 	}
 	
+	function make_questions(){
+		global $questions_array; 				
+		$number_of_questions = $questions_array["number_of_questions"];
+		$output = "";
+		for($i=1; $i<=$number_of_questions; $i++ ){		
+			$question = $questions_array[$i];
+			$marks=$question["marks"];
+			$negative_marks=$question["negative_marks"];
+
+                $output .= "<div class=\"panel panel-primary\">
+                <div class=\"panel-heading\">
+                   <h4 class=\"panel-title\" id=\"glyphicon{$i}\">
+                      <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$i}\" >
+                      Question {$i}   <span class=\"pull-right\">Marks : {$marks}  &nbsp;&nbsp; Negative Marks : {$negative_marks}</span></a>
+                   </h4>
+                </div>
+                <div id=\"collapse{$i}\" class=\"panel-collapse collapse\">
+                   <div class=\"panel-body\"><pre><code>" . $question["question"] . "</code></pre></div>
+                   <div class=\"radio spaceRadio  \">
+                      <label><input type=\"radio\" onclick= \"record_ans({$i},1)\" name=\"q{$i}op\">". $question["option1"] ."</label>
+                   </div>
+                   <div class=\"radio spaceRadio\">
+                      <label><input type=\"radio\" onclick=\"record_ans({$i},2)\" name=\"q{$i}op\">". $question["option2"] ."</label>
+                   </div>
+                   <div class=\"radio spaceRadio\">
+                      <label><input type=\"radio\" onclick=\"record_ans({$i},3)\" name=\"q{$i}op\">". $question["option3"] ."</label>
+                   </div>
+                   <div class=\"radio spaceRadio\">
+                      <label><input type=\"radio\" onclick=\"record_ans({$i},4)\" name=\"q{$i}op\">". $question["option4"] ."</label>
+                   </div>
+
+                   <a type=\"button\" style=\"visibility:hidden;\" value=\"Reset\" id=\"reset_button_{$i}\" class=\"btn btn-info spaceReset\" onclick=\"reset_question($i)\">Reset</a>
+                    
+                </div>
+
+             </div> ";             
+        }
+        return $output;
+	}
 ?>

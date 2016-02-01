@@ -15,12 +15,12 @@
 		    if (property_exists($this, $property)) {
 		      $this->$property = $value;
 		    }
-
 		    return $this;
 		}
 
 		public static function create_table($name){
 			$query_string = "CREATE TABLE IF NOT EXISTS ". $name . "_questions" . "(
+							  `id` int(11) NOT NULL AUTO_INCREMENT,
 							  `question` text NOT NULL,
 							  `option1` text NOT NULL,
 							  `option2` text NOT NULL,
@@ -28,7 +28,8 @@
 							  `option4` text NOT NULL,
 							  `correct_ans` text NOT NULL,
 							  `marks` int(11) NOT NULL,
-							  `negative_marks` int(11) NOT NULL
+							  `negative_marks` int(11) NOT NULL,
+							  PRIMARY KEY (`id`)
 							)";
 			$db = new DB_CONNECT();	
 			$result = $db->query_database($query_string); 

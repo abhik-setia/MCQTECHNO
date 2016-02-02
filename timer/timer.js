@@ -14,6 +14,7 @@ function CreateTimer(TimerID, Time) {
 function Tick() {
 	if (TotalSeconds <= 0) {
 	alert("Time's up!")
+	
 	return;
 	}
 

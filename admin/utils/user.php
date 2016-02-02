@@ -29,7 +29,8 @@
 							  `questions_attempted` int(11) NOT NULL DEFAULT '0',
 							  `correct_ans` int(11) NOT NULL DEFAULT '0',
 							  `wrong_ans` int(11) NOT NULL DEFAULT '0',
-							  PRIMARY KEY (`email`)
+							  PRIMARY KEY (`email`),
+							  UNIQUE KEY `phone_number` (`phone_number`)
 							)";
 			$db = new DB_CONNECT();	
 			$result = $db->query_database($query_string); 

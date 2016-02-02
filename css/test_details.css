@@ -1,12 +1,13 @@
 body{
         background-color: #525252;
+        background-image:url("http://i.istockimg.com/file_thumbview_approve/80384473/13/stock-video-80384473-plexus-form-on-a-black-background.jpg"); 
     }
     .centered-form{
     	margin-top: 60px;
     }
 
     .centered-form .panel{
-    	background: rgba(255, 255, 255, 0.8);
+    	background: rgba(255, 255, 255, 0.9);
     	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
     }
 
@@ -14,3 +15,12 @@ body{
         float: none;
         margin: 0 auto;
     }
+    .champagne{
+            font-family:Champagne; 
+            font-size:2.3em;  
+         }
+
+         @font-face {
+             font-family: Champagne;
+             src: url(../fonts/xyz.ttf);
+         }

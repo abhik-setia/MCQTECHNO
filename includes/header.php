@@ -7,9 +7,9 @@
                   <span class="icon-bar"></span> 
                   </button>
                   <a class="brand" href="#">
-                  <img src="images/Techspardhalogo.png" alt="" width="20%">
+                  <img src="http://s12.postimg.org/8ta2or48d/Graphic1.png" alt="" width="5%">
                   </a>
-                  <a class="navbar-brand" href="#">TechSpardha</a>  
+                  <a class="navbar-brand champagne" href="#">TechSpardha</a>  
                   
                </div>
                

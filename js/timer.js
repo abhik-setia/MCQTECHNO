@@ -6,15 +6,17 @@ var TotalSeconds;
 function CreateTimer(TimerID, Time) {
 	Timer = document.getElementById(TimerID);
 	TotalSeconds = Time;
-	
-	UpdateTimer()
+	UpdateTimer();
 	window.setTimeout("Tick()", 1000);
 }
 
 function Tick() {
-	if (TotalSeconds <= 0) {
-	alert("Time's up!")
-	return;
+	if (TotalSeconds <= 0) {	
+		if (confirm("Times up buddy") == true) {
+	    	document.getElementById("final_test_form").submit();
+	    } else {
+	   		document.getElementById("final_test_form").submit(); 	
+	    }	
 	}
 
 	TotalSeconds -= 1;

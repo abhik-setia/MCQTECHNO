@@ -2,9 +2,8 @@
     require_once("includes/db_connect.php");
     include("includes/functions.php");        
     $questions_array = array();
-    
-    $test_questions_table = "abc"."_questions";
-    //$test_questions_table = get_test_name() ."_questions";
+        
+    $test_questions_table = get_test_name() ."_questions";
     
     $query = "SELECT * FROM ". $test_questions_table;
 
@@ -46,11 +45,13 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="css/bootstrap.min.css" >
+      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
+      <link rel="stylesheet" type="text/css" href="css/final_test.css">  
+      <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
       <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="js/bootstrap.min.js"></script>
       <script src="js/timer.js" type="text/javascript"></script>
       <script src="js/common.js" type="text/javascript"></script>
-      <link rel="stylesheet" type="text/css" href="css/final_test.css">      
    </head>
    <body>      
          <?php include 'includes/header.php';?>
@@ -63,8 +64,8 @@
             </div>
          </div>
 
-         <form method="post" action="user/thank_you.php">
-            <div class="container-fluid">
+         <form method="post" action="user/thank_you.php" id="final_test_form">
+            <div class="container-fluid " style="font-family: 'Titillium Web', sans-serif;">
                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-10 scrollit">
                   <div class="panel-group" id="accordion">
                     <?php                                                
@@ -73,7 +74,7 @@
                     ?>                                             
                   </div>
                </div>
-               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 fixed">
+               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 fixed " style="font-family: 'Titillium Web', sans-serif;">
 
                		<div class="row ">
                			<div class="well well-sm">
@@ -84,7 +85,7 @@
                					<div class="panel-body">
                						<p>Questions Answered : <ans id="answered_questions" >0</ans></p>
                						<p>Questions Unanswered : <unans id="unanswered_questions">
-                                    <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>               						
+                            <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>               						
                					</div>
                				</div>
                			</div>
@@ -95,7 +96,7 @@
                             global $number_of_questions;
                             for ($i=1; $i<=$number_of_questions; $i++) {           
                             echo "
-                               <li id=\"pagination_id_{$i}\"><a  href=\"#collapse{$i}\" data-toggle=\"collapse\" onclick=\"active_pagination({$i})\">{$i}</a></li>
+                               <li id=\"pagination_id_{$i}\"><a href=\"#collapse{$i}\" data-toggle=\"collapse\" onclick=\"active_pagination({$i})\">{$i}</a></li>
                                " ;
                             } 
                         ?>
@@ -105,8 +106,8 @@
                   	<div class="container-fluid centered">
                     	<img src="images/clock.jpg">
                      	<div id='timer'></div>
-                     	<script type="text/javascript">window.onload = CreateTimer("timer", 3000);</script>
-              	       <span class="pull-right spaceButton "><input type="submit" name="submit" value="Submit" class="btn btn-success"></span>      
+                     	<script type="text/javascript">window.onload = CreateTimer("timer", 5);</script>
+              	       <span class="pull-right spaceButton "><input type="submit" name="btnSubmit" value="Submit" class="btn btn-success"></span>      
                   	</div>                                  
                </div>
             </div>        	

@@ -15,8 +15,7 @@
 		
 	}
 
-	function get_test_name(){
-		
+	function get_test_name(){		
 		return $_SESSION["test_name"];
 	}
 
@@ -26,6 +25,14 @@
 
 	function set_username($username){
 		$_SESSION["username"] = $username;
+	}
+
+	function get_test_username(){
+		return $_SESSION["get_test_username"];
+	}
+
+	function set_test_username($test_username){
+		$_SESSION["test_username"] = $test_username;
 	}
 
 ?>

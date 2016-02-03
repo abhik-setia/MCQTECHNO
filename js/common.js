@@ -29,20 +29,17 @@ function record_ans(question_number, option){
     d.setTime(d.getTime() + (2*60*60*1000));
     var expires = "expires=" + d.toGMTString();  
     var my_cookie  = getCookie(question_number);
-    var progress=null;
+    var progress = null;
 
     if(my_cookie == null){
-    	document.getElementById("answered_questions").innerHTML = get_answered_questions() + 1;    	
-    	document.getElementById("unanswered_questions").innerHTML = get_unanswered_questions() - 1;  
+        set_answered_questions(get_answered_questions() + 1 );
+        set_unanswered_questions(get_unanswered_questions() - 1);    	
 
-        progress=((get_answered_questions()+1)/(get_answered_questions()+get_unanswered_questions()))*100;
+        progress=((get_answered_questions())/(get_answered_questions()+get_unanswered_questions()))*100;
         add_glyphicon(question_number);  	
     }
     document.cookie = question_number + "=option" + option + "; " + expires;
-
     document.getElementById("reset_button_"+question_number).style.visibility="visible";
-
-
     if(progress!=null)
     progress_bar_refresh(progress);
 

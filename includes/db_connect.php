@@ -72,6 +72,8 @@
 		
 		// for number of rows
 		function number_of_rows($result){
+			if(is_null($result))
+				return 0;
 			return mysqli_num_rows($result);
 		}
 		

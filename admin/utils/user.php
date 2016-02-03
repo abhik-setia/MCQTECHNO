@@ -24,7 +24,7 @@
 							  `first_name` varchar(30) NOT NULL,
 							  `last_name` varchar(30) NOT NULL,
 							  `email` varchar(30) NOT NULL,
-							  `phone_number` int(13) NOT NULL,
+							  `phone_number` varchar(13) NOT NULL,
 							  `score` int(11) NOT NULL DEFAULT '0',
 							  `questions_attempted` int(11) NOT NULL DEFAULT '0',
 							  `correct_ans` int(11) NOT NULL DEFAULT '0',

@@ -1,4 +1,6 @@
 <?php
+	require_once('../includes/session.php');
+	
 	if(isset($_SESSION["message_test_time_not_correct"])){
 		$error_message = $_SESSION["message_test_time_not_correct"];
 	}

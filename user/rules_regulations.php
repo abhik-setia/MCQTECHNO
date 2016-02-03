@@ -28,15 +28,15 @@
          </div>
          <div class="panel-body">
             <ul class="list-group">
-             <li class="list-group-item"><pre><?php global $content; echo $content; ?></pre></li>                  
+             <li class="list-group-item" ><pre style="font-size:1.3em"><?php global $content; echo $content; ?></pre></li>                  
              
             </ul>
          </div>
 
       </div>
-
-              <a class="btn btn-success btn-lg" href="../final_test.php">Start Test</a>
-                           
+      <center>
+      <a class="btn btn-success btn-lg btn-block" href="../final_test.php">Start Test</a>
+      </center>             
      </div> 
    </body>
 </html>

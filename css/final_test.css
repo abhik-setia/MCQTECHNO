@@ -17,8 +17,7 @@
                  position: fixed;
                  width: 27%;
                  margin-top:0%; 
-                 margin-left:70%; 
-                 
+                 margin-left:70%;  
          }
          .scrollit {
                  float: left;
@@ -35,5 +34,5 @@
 
          @font-face {
              font-family: Champagne;
-             src: url(../fonts/xyz.ttf);
+             src: url(../fonts/xyz2.ttf);
          }

@@ -7,10 +7,9 @@
                   <span class="icon-bar"></span> 
                   </button>
                   <a class="brand" href="#">
-                  <img src="http://s12.postimg.org/8ta2or48d/Graphic1.png" alt="" width="5%">
+                  <img src="http://s12.postimg.org/8ta2or48d/Graphic1.png" alt="" width="5%" style="float:left;">
                   </a>
-                  <a class="navbar-brand champagne" href="#">TechSpardha</a>  
-                  
+                  <a class="navbar-brand champagne" href="#" >Techspardha</a>
                </div>
                
                <!-- <div class="collapse navbar-collapse" id="myNavbar">

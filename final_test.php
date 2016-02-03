@@ -3,10 +3,9 @@
     require_once("includes/functions.php"); 
     require_once("includes/session.php"); 
 
-    $questions_array = array();
-        
+    $questions_array = array();        
     $test_questions_table = get_test_name() ."_questions";
-    
+    //$test_questions_table = "abc" ."_questions";
     $query = "SELECT * FROM ". $test_questions_table;
 
     $result = $db->query_database($query);    
@@ -68,26 +67,25 @@
 
          <form method="post" action="user/thank_you.php" id="final_test_form">
             <div class="container-fluid " style="font-family: 'Titillium Web', sans-serif;">
-               <div class="col-xs-8 col-sm-8 col-md-8 col-lg-10 scrollit">
-                  <div class="panel-group" id="accordion">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-10 scrollit">
+                    <div class="panel-group" id="accordion">
                     <?php                                                
                         global $questions_html;
                         echo $questions_html;
                     ?>                                             
-                  </div>
-               </div>
-               <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 fixed " style="font-family: 'Titillium Web', sans-serif;">
-
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 fixed " style="font-family: 'Titillium Web', sans-serif;">
                		<div class="row ">
                			<div class="well well-sm">
                				<div class="panel panel-default">
                					<div class="panel-heading">
-               						<b>Welcome!! User</b>
+               						<b>Welcome!! <?php echo get_test_username();?></b>
                					</div>
                					<div class="panel-body">
                						<p>Questions Answered : <ans id="answered_questions" >0</ans></p>
                						<p>Questions Unanswered : <unans id="unanswered_questions">
-                            <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>               						
+                                    <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>               						
                					</div>
                				</div>
                			</div>
@@ -108,7 +106,7 @@
                   	<div class="container-fluid centered">
                     	<img src="images/clock.jpg">
                      	<div id='timer'></div>
-                     	<script type="text/javascript">window.onload = CreateTimer("timer", 5);</script>
+                     	<script type="text/javascript">window.onload = CreateTimer("timer", <?php echo get_test_duration(); ?>);</script>
               	       <span class="pull-right spaceButton "><input type="submit" name="btnSubmit" value="Submit" class="btn btn-success"></span>      
                   	</div>                                  
                </div>

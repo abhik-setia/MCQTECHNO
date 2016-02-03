@@ -75,4 +75,47 @@
         }
         return $output;
 	}
+
+	function make_test_information_table(){
+		global $table_data_array;
+		$no_of_rows=$table_data_array["number_of_rows"];
+		$output="";
+
+		for ($i=1; $i<=$no_of_rows; $i++) { 
+			$table_data=$table_data_array[$i];
+			
+			$output.="<tr>
+                      <td>".$table_data["test_name"]."</td>
+                      <td>".$table_data["start_time"]."</td>
+                      <td>".$table_data["end_time"]."</td>
+                      <td>".$table_data["event_date"]."</td>
+                      <td>".$table_data["duration"]."</td>
+                      <td><a href=\"view_users_of_table.php?test_name={$table_data["test_name"]}\">View Users</a></td>
+                      </tr>";
+		}
+		return $output;
+	}			
+
+	function make_users_table(){
+		global $table_data_array;
+		$no_of_rows=$table_data_array["number_of_rows"];
+		$output="";
+
+		for ($i=1; $i<=$no_of_rows; $i++) { 
+			$table_data=$table_data_array[$i];
+			
+			$output.="<tr>
+					  <td>{$i}</td>
+                      <td>".$table_data["first_name"]."</td>
+                      <td>".$table_data["last_name"]."</td>
+                      <td>".$table_data["email"]."</td>
+                      <td>".$table_data["phone_number"]."</td>
+                      <td>".$table_data["score"]."</td>
+                      <td>".$table_data["questions_attempted"]."</td>
+                      <td>".$table_data["correct_ans"]."</td>
+                      <td>".$table_data["wrong_ans"]."</td>
+                      </tr>";
+		}
+		return $output;
+	}
 ?>

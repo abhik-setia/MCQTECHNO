@@ -47,15 +47,11 @@
                          <div class="row">
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                               <div class="form-group">
-                                 <a class="btn btn-info col-lg-8 col-xs-8 col-md-8 col-sm-8 centering" href="#">View Test</a>
+                                 <a class="btn btn-info col-lg-8 col-xs-8 col-md-8 col-sm-8 centering" href="view_test.php">View Test</a>
                               </div>
                            </div>
-                        </div>
-                        
-
+                        </div>                     
                      </form>
-
-
                   </div>
                </div>
             </div>

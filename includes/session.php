@@ -35,4 +35,11 @@
 		$_SESSION["test_username"] = $test_username;
 	}
 
+	function get_test_duration(){			
+		return $_SESSION["test_duration"];
+	}
+
+	function set_test_duration($duration){
+		$_SESSION["test_duration"] = $duration * 60; // time stored in the seconds	
+	}
 ?>

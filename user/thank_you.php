@@ -28,14 +28,16 @@
         }
     }
 
-    $number_of_questions_attempted = $number_of_questions - $number_of_unattempted_questions;
+    $number_of_attempted_questions = $number_of_questions - $number_of_unattempted_questions;
 
-    $test_user_name = set_test_username();
+    $test_user_name = get_test_username();
+    echo $test_user_name . "<br>";
     $test_users_table = get_test_name() . "_users";
     $query = "Update " . $test_users_table . " set score={$score} , correct_ans={$number_of_correct_ans},
-              wrong_ans={$number_of_wrong_ans}, questions_attempted={$number_of_questions_attempted},
-              WHERE email='$test_user_name'";
-    $result = $db->query_database($result);          
+              wrong_ans={$number_of_wrong_ans}, questions_attempted={$number_of_attempted_questions},
+              WHERE email='{$test_user_name}'";
+
+    $result = $db->query_database($query);          
     if($result != NULL){
         if($db->rows_affected($result)!=0){
             // do nothing
@@ -74,7 +76,7 @@
            <li class="list-group-item"> <h3>Your Score : <?php global $score; echo $score; ?></h3></li>
             <li class="list-group-item"><h3>Correct Answers : <?php global $number_of_correct_ans; echo $number_of_correct_ans; ?></h3></li>
             <li class="list-group-item"><h3>Wrong Answers : <?php global $number_of_wrong_ans; echo $number_of_wrong_ans; ?></h3></li>
-            <li class="list-group-item"><h3>Attempted Questions : <?php global $number_of_unattempted_questions; echo $number_of_unattempted_questions; ?></h3></li>
+            <li class="list-group-item"><h3>Attempted Questions : <?php global $number_of_attempted_questions; echo $number_of_attempted_questions; ?></h3></li>
             <li class="list-group-item"><h3>Unattempted Questions : <?php global $number_of_unattempted_questions; echo $number_of_unattempted_questions; ?></h3></li>            
          </div>
 

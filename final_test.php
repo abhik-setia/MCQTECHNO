@@ -1,6 +1,8 @@
 <?php
     require_once("includes/db_connect.php");
-    include("includes/functions.php");        
+    require_once("includes/functions.php"); 
+    require_once("includes/session.php"); 
+
     $questions_array = array();
         
     $test_questions_table = get_test_name() ."_questions";

@@ -20,7 +20,7 @@
 					$_SESSION["message_test_time_not_correct"] = "The test have not started yet";					
 					redirect_to("error.php");
 				}else if($current_unix_timestamp < $test_start_unix_timestamp){								
-					$_SESSION["message_test_time_not_correct"] = "The test has ended :P";									
+					$_SESSION["message_test_time_not_correct"] = "The test has ended :P";
 					redirect_to("error.php");
 				}
 			}
@@ -28,6 +28,6 @@
 
 		}
 	}else{
-
+		echo "Enter the test_name";
 	}
 ?>

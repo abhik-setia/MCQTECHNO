@@ -1,10 +1,14 @@
 <?php
     require_once("../includes/db_connect.php");
     require_once("../includes/functions.php");    
-    require_once("../includes/session.php");    
-    
+    require_once("../includes/session.php");        
     $test_name = get_test_name();
     $test_user_name = get_test_username();
+    if(is_null($test_name) || is_null($test_user_name) ){
+        $_SESSION["message_test_time_not_correct"] = "You are logged out and test has endend. :P";
+        redirect_to("../tests/error.php");        
+    }
+    
     
     $file = fopen("../tests/" . $test_name . "/" . $test_user_name . ".txt","wb");
     $content_to_write = "";    
@@ -21,7 +25,7 @@
     for($i = 1 ; $i <= $number_of_questions; $i++){        
         $your_ans = "";
         $correct_ans = $_COOKIE[md5("correct_ans".$i)];
-        if(isset($_COOKIE[$i])){            
+        if(isset($_COOKIE[$i])){                     
             $user_response = md5($_COOKIE[$i]);
             $marks = $_COOKIE[md5("marks".$i)];
             $negative_marks = $_COOKIE[md5("negative_marks".$i)];            
@@ -34,6 +38,7 @@
                 $number_of_wrong_ans++;  
                 $marks = $negative_marks;
             }
+            //setcookie($_COOKIE[$i], null, -1, '/');
         }else{
             $number_of_unattempted_questions++;
             $your_ans = "Not attempted";
@@ -62,7 +67,7 @@
     $result = $db->query_database($query);          
     if($result != NULL){
         if($db->rows_affected($result)!=0){
-            // do nothing
+            remove_all_cookies();
         }
     }else{
         echo "Query failed";
@@ -81,6 +86,11 @@
       <link rel="stylesheet" type="text/css" href="../css/final_test.css">  
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
       <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+      <script type="text/javascript">
+        // window.onbeforeunload = function(){        
+        //     return "Are you sure you want to quit?";
+        // }
+      </script>
    </head>
    <body>
         <?php include("../includes/header.php"); ?>

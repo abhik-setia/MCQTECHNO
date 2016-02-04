@@ -83,6 +83,14 @@
 		
 		function rows_affected(){
 			return mysqli_affected_rows($this->connection);
+		}
+
+		function fetch_as_associate_array($result){
+			return mysqli_fetch_assoc($result);
+		}
+
+		function data_seek(&$result, $row_number=0){
+			mysqli_data_seek($result, $row_number);			
 		}		
 	}
 	$db = new DB_CONNECT();	

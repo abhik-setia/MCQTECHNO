@@ -3,6 +3,8 @@
   require_once("../includes/functions.php");
   require_once("../includes/session.php");
   
+   confirm_logged_in();
+
 
   if(isset($_GET["message"])){
     $message = "The question has been added";
@@ -46,6 +48,8 @@
          <?php
             include("admin_includes/head_section.php");
          ?>
+         <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
+    
    </head>
 
     <style>
@@ -61,7 +65,7 @@
             echo(show_message($message));
           }
         ?>
-      <div class="container">       
+      <div class="container" style="font-family: 'Titillium Web', sans-serif;">       
          <div class="row centered-form">
             <div class="col-xs-12 col-sm-7 col-md-7 centering">
                <div class="panel panel-default">

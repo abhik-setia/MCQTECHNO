@@ -1,5 +1,12 @@
 <?php	
-		
+	
+	function remove_all_cookies(){		
+		foreach ($_COOKIE as $key => $value){			
+    		unset($value);
+    		setcookie($key, null, -1, '/');    		
+		}
+	}
+
 	function redirect_to($location = NULL){
 		if($location !=NULL){
 			header("Location: {$location}");
@@ -8,7 +15,7 @@
 	}
 
 	function check_is_set($val){	 	
-		foreach ($val as $key => $value) {			
+		foreach ($val as $key => $value){			
 			if(!isset($val[$key]))
 				return 0;				
 		}	
@@ -16,7 +23,7 @@
 	}
 
 	function check_empty($val){
-		foreach ($val as $key => $value) {
+		foreach ($val as $key => $value){
 			if(empty($val[$key]))
 				return 0;
 		}	
@@ -117,5 +124,31 @@
                       </tr>";
 		}
 		return $output;
+	}
+
+	function get_questions_table($testname){
+		global $table_data_array;
+		$no_of_rows=$table_data_array["number_of_rows"];
+		$output="";
+		$url=$testname;
+		for ($i=1; $i<=$no_of_rows; $i++) { 
+			$table_data=$table_data_array[$i];
+			
+			$output.="<tr>
+					  <td>{$i}</td>
+		              <td>".$table_data["question"]."</td>
+		              <td>".$table_data["option1"]."</td>
+		              <td>".$table_data["option2"]."</td>
+		              <td>".$table_data["option3"]."</td>
+		              <td>".$table_data["option4"]."</td>
+		              <td>".$table_data["correct_ans"]."</td>
+		              <td>".$table_data["marks"]."</td>
+		              <td>".$table_data["negative_marks"]."</td>
+		              <td><a href=\"edit_question.php?question_id={$table_data["question_id"]}&test_name={$url}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
+		 
+		              </tr>";
+		}
+		return $output;
+
 	}
 ?>

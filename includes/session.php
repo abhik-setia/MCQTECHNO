@@ -10,17 +10,24 @@
 		}
 	}
 
+	function logout(){
+		session_destroy();	
+	}
+	
 	function set_test_name($test_name){
 		$_SESSION["test_name"] = $test_name;
-		
 	}
 
-	function get_test_name(){		
-		return $_SESSION["test_name"];
+	function get_test_name(){
+		if(isset($_SESSION["test_name"]))		
+			return $_SESSION["test_name"];
+		return NULL;
 	}
 
 	function get_username(){
-		return $_SESSION["username"];
+		if(isset($_SESSION["username"]))
+			return $_SESSION["username"];
+		return NULL;
 	}
 
 	function set_username($username){
@@ -28,15 +35,19 @@
 	}
 
 	function get_test_username(){
-		return $_SESSION["test_username"];
+		if(isset($_SESSION["test_username"]))
+			return $_SESSION["test_username"];
+		return NULL;		
 	}
 
 	function set_test_username($test_username){
 		$_SESSION["test_username"] = $test_username;
 	}
 
-	function get_test_duration(){			
-		return $_SESSION["test_duration"];
+	function get_test_duration(){
+		if(isset($_SESSION["test_duration"]))
+			return $_SESSION["test_duration"];			
+		return NULL;
 	}
 
 	function set_test_duration($duration){

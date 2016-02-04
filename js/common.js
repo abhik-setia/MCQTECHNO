@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$("#closeButton").click(function(){				
 		$("#alertMessage").hide(2000);
 	});
+
 });	
 
 function getCookie(name) {
@@ -38,7 +39,7 @@ function record_ans(question_number, option){
         progress=((get_answered_questions())/(get_answered_questions()+get_unanswered_questions()))*100;
         add_glyphicon(question_number);  	
     }
-    document.cookie = question_number + "=option" + option + "; " + expires;
+    document.cookie = question_number + "=option" + option + "; " + expires + ";path=/";    
     document.getElementById("reset_button_"+question_number).style.visibility="visible";
     if(progress!=null)
     progress_bar_refresh(progress);
@@ -64,7 +65,7 @@ function get_unanswered_questions() {
 }
 
 function delete_cookie(cookie_name){
-    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = cookie_name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
 }
 
 function progress_bar_refresh (progress_made) {

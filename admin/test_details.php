@@ -5,6 +5,8 @@
    require_once("utils/question.php");
    require_once("utils/user.php");
 
+    confirm_logged_in();
+
    if(isset($_POST["submit"])){
       $db = new DB_CONNECT();    
 
@@ -97,7 +99,7 @@
                            </div>
                         </div>
                      
-                     <div class="row" class="collapse" >
+                     <div class="row" >
                            <div class="col-xs-6 col-sm-6 col-md-6 centering">
                               <div class="form-group">
                               <a href="#" data-toggle="tooltip" title="Starting Time">
@@ -106,7 +108,7 @@
                            </div>
                         </div>
 
-                        <div class="row" class="collapse">
+                        <div class="row" >
                            <div class="form-group" >
                               <div class="col-xs-6 col-sm-6 col-md-6 centering">
                                  <a href="#" data-toggle="tooltip" title="Ending Time">

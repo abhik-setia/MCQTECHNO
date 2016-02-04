@@ -54,7 +54,7 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 centering ">
          <div class="panel panel-default">
             <div class="panel-heading">
-                  <h3 class="panel-title">Please Register here to proceed furter</h3>
+                  <h3 class="panel-title">Please Register here to proceed further</h3>
                   </div>
                   <div class="panel-body">
                   <form role="form" method="post" action="">
@@ -91,7 +91,7 @@
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                            <div class="form-group">
                               <a href="#" data-toggle="tooltip" title="Phone no Please :D">                        
-                              <input type="tel" name="phone_number" id="phone_number" required class="form-control input-sm" placeholder=" Your Mobile number">
+                              <input type="tel" name="phone_number" maxlength="10" id="phone_number" required class="form-control input-sm" placeholder=" Your Mobile number">
                            </div>
                         </div>
                      </div>

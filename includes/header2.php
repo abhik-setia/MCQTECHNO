@@ -1,15 +1,17 @@
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color:black">
             <div class="container-fluid">
                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
+                  <!-- <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#myNavbar">
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span> 
                   </button>
-                  <a class="brand" href="#">
+                   --><a class="brand" href="#">
                   <img src="http://s12.postimg.org/8ta2or48d/Graphic1.png" alt="" width="5%" style="float:left;">
                   </a>
                   <a class="navbar-brand champagne" style="margin-top:0.7%" href="#" >Techspardha</a>
+                  <a href="logout.php" class="btn btn-success pull-right" role="button" style="margin:1% 1%">Logout</a>
+                        
                </div>
                
                <!-- <div class="collapse navbar-collapse" id="myNavbar">

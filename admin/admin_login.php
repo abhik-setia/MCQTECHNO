@@ -2,6 +2,11 @@
 	require_once'../includes/db_connect.php';
 	require_once'../includes/functions.php';
 
+   if(isset($_GET["message"]))
+   {
+        $message = "Please Login To Continue or contact us :P (super admins)";
+   }
+
 	if(isset($_POST["submit"]))
 	{
 		if(check_is_set($_POST))
@@ -53,6 +58,8 @@
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
+      <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
+    
       <style type="text/css">
       .spaceX{
          margin-left:18%; 
@@ -60,8 +67,13 @@
       </style>
    </head>
    <body>
-   <?php include("../includes/header.php"); ?>
-      <div class="container">
+   <?php include("../includes/header2.php");
+
+   global $message;
+          if(check_var($message)){
+            echo(show_message($message));
+          } ?>
+      <div class="container" style="font-family: 'Titillium Web', sans-serif;">
          <div class="row centered-form">
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 centering ">
                <div class="panel panel-default">

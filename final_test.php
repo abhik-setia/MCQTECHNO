@@ -76,20 +76,20 @@
                     </div>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 fixed " style="font-family: 'Titillium Web', sans-serif;">
-               		<div class="row ">
-               			<div class="well well-sm">
-               				<div class="panel panel-default">
-               					<div class="panel-heading">
-               						<b>Welcome!! <?php echo get_test_username();?></b>
-               					</div>
-               					<div class="panel-body">
-               						<p>Questions Answered : <ans id="answered_questions" >0</ans></p>
-               						<p>Questions Unanswered : <unans id="unanswered_questions">
-                                    <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>               						
-               					</div>
-               				</div>
-               			</div>
-               		</div>
+                       <div class="row ">
+                           <div class="well well-sm">
+                               <div class="panel panel-default">
+                                   <div class="panel-heading">
+                                       <b>Welcome!! <?php echo get_test_username();?></b>
+                                   </div>
+                                   <div class="panel-body">
+                                       <p>Questions Answered : <ans id="answered_questions" >0</ans></p>
+                                       <p>Questions Unanswered : <unans id="unanswered_questions">
+                                    <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>                                       
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
                      <div class="row">
                         <ul class="pagination col-lg-12 col-md-12 col-xs-12 col-sm-12">
                         <?php 
@@ -101,16 +101,16 @@
                             } 
                         ?>
                         </ul> 
-                 	</div>
+                     </div>
 
-                  	<div class="container-fluid centered">
-                    	<img src="images/clock.jpg">
-                     	<div id='timer'></div>
-                     	<script type="text/javascript">window.onload = CreateTimer("timer", <?php echo get_test_duration(); ?>);</script>
-              	       <span class="pull-right spaceButton "><input type="submit" name="btnSubmit" value="Submit" class="btn btn-success"></span>      
-                  	</div>                                  
+                      <div class="container-fluid centered">
+                        <img src="images/clock.jpg">
+                         <div id='timer'></div>
+                         <script type="text/javascript">window.onload = CreateTimer("timer", <?php echo get_test_duration(); ?>);</script>
+                         <span class="pull-right spaceButton "><input type="submit" name="btnSubmit" value="Submit" class="btn btn-success"></span>      
+                      </div>                                  
                </div>
-            </div>        	
+            </div>            
          </form>      
    </body>
 </html>

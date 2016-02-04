@@ -51,7 +51,7 @@
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
    </head>
    <body>
-   <?php include("../includes/header.php"); ?>
+   <?php include("../includes/header2.php"); ?>
    <div class="container">
       <div class="panel panel-default">
         <div class="panel-heading">

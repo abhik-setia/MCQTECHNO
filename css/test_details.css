@@ -3,12 +3,12 @@ body{
         background-image:url("http://i.istockimg.com/file_thumbview_approve/80384473/13/stock-video-80384473-plexus-form-on-a-black-background.jpg"); 
     }
     .centered-form{
-    	margin-top: 60px;
+        margin-top: 60px;
     }
 
     .centered-form .panel{
-    	background: rgba(255, 255, 255, 0.9);
-    	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
     }
 
     .centering {

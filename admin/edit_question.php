@@ -10,7 +10,7 @@
       $question_id=$_POST['question_id'];
       $decode_url=$_POST['test_name'];
 
-   		$table_name=$decode_url."_questions";	
+        $table_name=$decode_url."_questions";   
         $table_data=array();
         $table_data["question_id"]=$_POST["question_id"];
         $table_data["question"]=$_POST["question"];
@@ -36,13 +36,13 @@
 {
   $question_id=$_GET['question_id'];
   $decode_url=$_GET['test_name'];
-  $db = new DB_CONNECT();      	
+  $db = new DB_CONNECT();       
   $query = "SELECT * FROM ".$decode_url."_questions WHERE id='{$question_id}' ";
   $question=$db->query_database($query); 
   if($db->number_of_rows($question) >0)
     {
-    	$i=1;
-    	while ($row=$db->fetch_array($question)){
+        $i=1;
+        while ($row=$db->fetch_array($question)){
 
         $table_data=array();
         $table_data_array[$i]=array();
@@ -58,7 +58,7 @@
         $table_data_array[$i]=$table_data; 
         $i++;
 
-    	}
+        }
 
     }
  } 
@@ -108,13 +108,13 @@
 
                           <?php                               
                             for($i=1 ; $i<= 4; $i++){
-                            	$option_value=$table_data["option".$i];
-                            	$check_radio="";
+                                $option_value=$table_data["option".$i];
+                                $check_radio="";
 
-                            	if(strcmp($table_data["correct_ans"],"option".$i)==0)
-                            	{
-                            		$check_radio=" checked=\"true\" ";
-                            	}
+                                if(strcmp($table_data["correct_ans"],"option".$i)==0)
+                                {
+                                    $check_radio=" checked=\"true\" ";
+                                }
                               echo"<br>
                                     <div class=\"row\">
                                         <div class=\"form-group spaceX\">

@@ -9,8 +9,8 @@
                    --><a class="brand" href="#">
                   <img src="http://s12.postimg.org/8ta2or48d/Graphic1.png" alt="" width="5%" style="float:left;">
                   </a>
-                  <a class="navbar-brand champagne" style="margin-top:0.7%" href="#" >Techspardha</a>
-                  <a href="logout.php" class="btn btn-success pull-right" role="button" style="margin:1% 1%">Logout</a>
+                  <a class="navbar-brand champagne" style="margin-top:0.7%" href="#" >Techspardha <br><span style="font-size: .4em" class="pull-right"> 26-29 feb</ span></a>
+                  <a href="logout.php" id="logout_button" class="btn btn-success pull-right" role="button" style="margin:1% 1%">Logout</a>
                         
                </div>
                

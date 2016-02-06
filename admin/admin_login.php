@@ -4,8 +4,9 @@
 
    if(isset($_GET["message"]))
    {
-        $message = "Please Login To Continue or contact us :P (super admins)";
+        $message = "Congrats you won a 1 million dollars...   just joking, you just logged out. Bye Bye!!";
    }
+
 
 	if(isset($_POST["submit"]))
 	{
@@ -19,15 +20,14 @@
 				if(!empty($username) && !empty($password))
 				{
 					$username=$db->mysql_prep($username);
-					$password=$db->mysql_prep($password);
-					$db->connect();
+					$password=sha1($db->mysql_prep($password));
+               $db->connect();
                $query = "SELECT username,password FROM admin where username='{$username}' AND password='{$password}'";
 					$user=$db->query_database($query);
 					
 					if(is_null($db->fetch_array($user)))
 					{
-						echo "Incorrect details";
-
+						$message = "Incorrect Details,Please Login again..";
 					}else{
                   require_once'../includes/session.php';                  
                   set_username($username);
@@ -36,11 +36,12 @@
 				}
 				else{
 					echo "please enter details correctly";
+
 				}
 
 			}else{
 				echo "fields are empty";
-			}
+          }
 		}else{
 			echo "Data not set";
 		}
@@ -54,6 +55,7 @@
       </title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
       <link rel="stylesheet" href="../css/bootstrap.min.css" >
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
@@ -65,6 +67,9 @@
          margin-left:18%; 
       }
       </style>
+
+
+
    </head>
    <body>
    <?php include("../includes/header2.php");
@@ -72,7 +77,15 @@
    global $message;
           if(check_var($message)){
             echo(show_message($message));
-          } ?>
+          } 
+  
+          ?>
+
+             <script type="text/javascript">
+          var logout_button=document.getElementById('logout_button');
+          logout_button.style.visibility='hidden';
+          </script>
+
       <div class="container" style="font-family: 'Titillium Web', sans-serif;">
          <div class="row centered-form">
             <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 centering ">
@@ -87,7 +100,7 @@
                            <label for="username" class=" spaceX"style="float:left">Username</label>    
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
                               <div class="form-group">
-                              	 <input type="text" name="username" id="username" class="form-control input-sm" placeholder="Username"/>
+                              	 <input type="text" name="username" id="username" required class="form-control input-sm" placeholder="Username"/>
                               </div>
                            </div>
                         </div>
@@ -95,7 +108,7 @@
                            <label for="password" class=" spaceX"style="float:left">Password</label>    
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
                               <div class="form-group">
-                              	 <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"/>
+                              	 <input type="password" name="password" required id="password" class="form-control input-sm" placeholder="Password"/>
                               </div>
                            </div>
                         </div>
@@ -116,4 +129,5 @@
          </div>
       </div>
    </body>
+
 </html>

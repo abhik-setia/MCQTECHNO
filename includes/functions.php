@@ -1,56 +1,56 @@
-<?php   
-    
-    function remove_all_cookies(){      
-        foreach ($_COOKIE as $key => $value){           
-            unset($value);
-            setcookie($key, null, -1, '/');         
-        }
-    }
+<?php	
+	
+	function remove_all_cookies(){		
+		foreach ($_COOKIE as $key => $value){			
+    		unset($value);
+    		setcookie($key, null, -1, '/');    		
+		}
+	}
 
-    function redirect_to($location = NULL){
-        if($location !=NULL){
-            header("Location: {$location}");
-            exit;
-        }
-    }
+	function redirect_to($location = NULL){
+		if($location !=NULL){
+			header("Location: {$location}");
+			exit;
+		}
+	}
 
-    function check_is_set($val){        
-        foreach ($val as $key => $value){           
-            if(!isset($val[$key]))
-                return 0;               
-        }   
-        return 1;
-    }
+	function check_is_set($val){	 	
+		foreach ($val as $key => $value){			
+			if(!isset($val[$key]))
+				return 0;				
+		}	
+		return 1;
+	}
 
-    function check_empty($val){
-        foreach ($val as $key => $value){
-            if(empty($val[$key]))
-                return 0;
-        }   
-        return 1;
-    }
-    
-    function check_var($var){       
-        return (isset($var) && !empty($var));
-    }
+	function check_empty($val){
+		foreach ($val as $key => $value){
+			if(empty($val[$key]))
+				return 0;
+		}	
+		return 1;
+	}
+	
+	function check_var($var){		
+		return (isset($var) && !empty($var));
+	}
 
-    function show_message($message){
-        $message_box = "<div class=\"container\" style=\"margin-top:6%;\"><div class=\"alert alert-warning alert-dismissible\" role=\"alert\" id=\"alertMessage\">
-        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
-            <span aria-hidden=\"true\" id=\"closeButton\">&times;</span>
-        </button> {$message}
-        </div></div>";
-        return $message_box;
-    }
-    
-    function make_questions(){
-        global $questions_array;                
-        $number_of_questions = $questions_array["number_of_questions"];
-        $output = "";
-        for($i=1; $i<=$number_of_questions; $i++ ){     
-            $question = $questions_array[$i];
-            $marks=$question["marks"];
-            $negative_marks=$question["negative_marks"];
+	function show_message($message){
+		$message_box = "<div class=\"container\" style=\"margin-top:6%;\"><div class=\"alert alert-warning alert-dismissible\" role=\"alert\" id=\"alertMessage\">
+  		<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+  			<span aria-hidden=\"true\" id=\"closeButton\">&times;</span>
+  		</button> {$message}
+		</div></div>";
+		return $message_box;
+	}
+	
+	function make_questions(){
+		global $questions_array; 				
+		$number_of_questions = $questions_array["number_of_questions"];
+		$output = "";
+		for($i=1; $i<=$number_of_questions; $i++ ){		
+			$question = $questions_array[$i];
+			$marks=$question["marks"];
+			$negative_marks=$question["negative_marks"];
 
                 $output .= "<div class=\"panel panel-primary\">
                 <div class=\"panel-heading\">
@@ -81,38 +81,40 @@
              </div> ";             
         }
         return $output;
-    }
+	}
 
-    function make_test_information_table(){
-        global $table_data_array;
-        $no_of_rows=$table_data_array["number_of_rows"];
-        $output="";
+	function make_test_information_table(){
+		global $table_data_array;
+		$no_of_rows=$table_data_array["number_of_rows"];
+		$output="";
 
-        for ($i=1; $i<=$no_of_rows; $i++) { 
-            $table_data=$table_data_array[$i];
-            
-            $output.="<tr>
+		for ($i=1; $i<=$no_of_rows; $i++) { 
+			$table_data=$table_data_array[$i];
+			
+			$output.="<tr>
                       <td>".$table_data["test_name"]."</td>
                       <td>".$table_data["start_time"]."</td>
                       <td>".$table_data["end_time"]."</td>
                       <td>".$table_data["event_date"]."</td>
                       <td>".$table_data["duration"]."</td>
                       <td><a href=\"view_users_of_table.php?test_name={$table_data["test_name"]}\">View Users</a></td>
+                      <td><a href=\"question_list.php?test_name={$table_data["test_name"]}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
+		              <td><a href=\"delete_test.php?test_name={$table_data["test_name"]}\" onclick=\"return confirm('Are you sure you want to delete this item?');\" ><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
                       </tr>";
-        }
-        return $output;
-    }           
+		}
+		return $output;
+	}			
 
-    function make_users_table(){
-        global $table_data_array;
-        $no_of_rows=$table_data_array["number_of_rows"];
-        $output="";
+	function make_users_table(){
+		global $table_data_array;
+		$no_of_rows=$table_data_array["number_of_rows"];
+		$output="";
 
-        for ($i=1; $i<=$no_of_rows; $i++) { 
-            $table_data=$table_data_array[$i];
-            
-            $output.="<tr>
-                      <td>{$i}</td>
+		for ($i=1; $i<=$no_of_rows; $i++) { 
+			$table_data=$table_data_array[$i];
+			
+			$output.="<tr>
+					  <td>{$i}</td>
                       <td>".$table_data["first_name"]."</td>
                       <td>".$table_data["last_name"]."</td>
                       <td>".$table_data["email"]."</td>
@@ -122,33 +124,33 @@
                       <td>".$table_data["correct_ans"]."</td>
                       <td>".$table_data["wrong_ans"]."</td>
                       </tr>";
-        }
-        return $output;
-    }
+		}
+		return $output;
+	}
 
-    function get_questions_table($testname){
-        global $table_data_array;
-        $no_of_rows=$table_data_array["number_of_rows"];
-        $output="";
-        $url=$testname;
-        for ($i=1; $i<=$no_of_rows; $i++) { 
-            $table_data=$table_data_array[$i];
-            
-            $output.="<tr>
-                      <td>{$i}</td>
-                      <td>".$table_data["question"]."</td>
-                      <td>".$table_data["option1"]."</td>
-                      <td>".$table_data["option2"]."</td>
-                      <td>".$table_data["option3"]."</td>
-                      <td>".$table_data["option4"]."</td>
-                      <td>".$table_data["correct_ans"]."</td>
-                      <td>".$table_data["marks"]."</td>
-                      <td>".$table_data["negative_marks"]."</td>
-                      <td><a href=\"edit_question.php?question_id={$table_data["question_id"]}&test_name={$url}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
-         
-                      </tr>";
-        }
-        return $output;
+	function get_questions_table($testname){
+		global $table_data_array;
+		$no_of_rows=$table_data_array["number_of_rows"];
+		$output="";
+		$url=$testname;
+		for ($i=1; $i<=$no_of_rows; $i++) { 
+			$table_data=$table_data_array[$i];
+			
+			$output.="<tr>
+					  <td>{$i}</td>
+		              <td>".$table_data["question"]."</td>
+		              <td>".$table_data["option1"]."</td>
+		              <td>".$table_data["option2"]."</td>
+		              <td>".$table_data["option3"]."</td>
+		              <td>".$table_data["option4"]."</td>
+		              <td>".$table_data["correct_ans"]."</td>
+		              <td>".$table_data["marks"]."</td>
+		              <td>".$table_data["negative_marks"]."</td>
+		              <td><a href=\"edit_question.php?question_id={$table_data["question_id"]}&test_name={$url}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
+		               <td><a href=\"delete_question.php?question_id={$table_data["question_id"]}&test_name={$testname}\"><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
+		              </tr>";
+		}
+		return $output;
 
-    }
+	}
 ?>

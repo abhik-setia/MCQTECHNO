@@ -62,7 +62,9 @@
         <div class="panel-heading">
         <a href="create_test.php" class="btn btn-info ">
           <span class="glyphicon glyphicon-menu-left"></span> Back
-        </a>&nbsp;&nbsp;List of tests created by <b><?php global $username;
+        </a>&nbsp;&nbsp;<a href="test_details.php" class="btn btn-info ">
+          <span class="glyphicon glyphicon-plus"></span> Create Test
+        </a> &nbsp;&nbsp;List of tests created by <b><?php global $username;
         echo $username; ?></b></div>
           <div class="panel-body">
 

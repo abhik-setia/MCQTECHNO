@@ -1,11 +1,11 @@
-$(document).ready(function(){                   
-    $('[data-toggle="tooltip"]').tooltip();
+$(document).ready(function(){					
+	$('[data-toggle="tooltip"]').tooltip();
 
-    $("#closeButton").click(function(){             
-        $("#alertMessage").hide(2000);
-    });
+	$("#closeButton").click(function(){				
+		$("#alertMessage").hide(2000);
+	});
 
-}); 
+});	
 
 function getCookie(name) {
     var dc = document.cookie;
@@ -26,7 +26,7 @@ function getCookie(name) {
 }
 
 function record_ans(question_number, option){
-    var d = new Date();
+	var d = new Date();
     d.setTime(d.getTime() + (2*60*60*1000));
     var expires = "expires=" + d.toGMTString();  
     var my_cookie  = getCookie(question_number);
@@ -34,10 +34,10 @@ function record_ans(question_number, option){
 
     if(my_cookie == null){
         set_answered_questions(get_answered_questions() + 1 );
-        set_unanswered_questions(get_unanswered_questions() - 1);       
+        set_unanswered_questions(get_unanswered_questions() - 1);    	
 
         progress=((get_answered_questions())/(get_answered_questions()+get_unanswered_questions()))*100;
-        add_glyphicon(question_number);     
+        add_glyphicon(question_number);  	
     }
     document.cookie = question_number + "=option" + option + "; " + expires + ";path=/";    
     document.getElementById("reset_button_"+question_number).style.visibility="visible";

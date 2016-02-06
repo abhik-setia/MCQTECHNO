@@ -12,8 +12,9 @@
             // email check is not made yet 
             // also check the email id doesnot exit there... :P
             $phone_number = $db->mysql_prep(trim($_POST['phone_number']));                                         
-            $user_test_table = get_test_name() . "_users";
-
+            //$user_test_table = get_test_name()."_users";
+            $user_test_table = $_GET['test_name']."_users";
+            set_test_name($_GET['test_name']);
             $query = "Insert into ". $user_test_table ." (first_name, last_name, email, phone_number) ".
                   " values('{$first_name}', '{$last_name}', '{$email}', '{$phone_number}')";
             $result = $db->query_database($query);

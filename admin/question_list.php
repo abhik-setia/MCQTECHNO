@@ -9,6 +9,7 @@
    $username = get_username();
    $decode_url=urldecode($_GET['test_name']);
 
+    set_test_name($decode_url);
     //select all test created by him from test table
 
    $query = "SELECT * FROM ".$decode_url."_questions";
@@ -65,7 +66,12 @@
       <div class="panel panel-default">
         <div class="panel-heading"> <a href="view_test.php" class="btn btn-info ">
           <span class="glyphicon glyphicon-menu-left"></span> Back
-        </a> &nbsp;&nbsp; Edit Mode for test <b><?php echo $decode_url; ?></b></div>
+        </a> &nbsp;&nbsp; <a href="add_question.php" class="btn btn-info ">
+          <span class="glyphicon glyphicon-plus"></span> Add Question
+        </a> &nbsp;&nbsp; 
+        <a href="edit_test_details.php" class="btn btn-info ">
+          <span class="glyphicon glyphicon-edit"></span> Edit Test Details
+        </a> &nbsp;&nbsp;Edit Mode for test <b><?php echo $decode_url; ?></b></div>
           <div class="panel-body">
              <table class="table table-hover table-striped">
                  <thead>

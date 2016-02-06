@@ -62,9 +62,22 @@
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <script type="text/javascript" src="../js/common.js"></script>
+      
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
+      <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <!-- Javascript -->
+      <script>
+         $(function() {
+            $( "#datepicker-13" ).datepicker();
+            
+         });
+      </script>
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
-    
+
    </head>
    <body>
    <?php include '../includes/header.php'; ?>
@@ -78,7 +91,7 @@
                   <div class="panel-body">
                   
                      <form role="form" method="post" action="">
-
+                        
                         <div class="row">
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                               <div class="form-group">
@@ -93,7 +106,7 @@
                            <div class="form-group">
                               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering" >
                                  <a href="#" data-toggle="tooltip" title="Date of event">
-                                 <input type="date" name="event_date" id="event_date" class="form-control input-sm" placeholder="Event Date"/>
+                                 <input type="text" name="event_date" id="datepicker-13" class="form-control input-sm" placeholder="Event Date"/>
                                  </a>
                               </div>
                            </div>
@@ -103,7 +116,7 @@
                            <div class="col-xs-6 col-sm-6 col-md-6 centering">
                               <div class="form-group">
                               <a href="#" data-toggle="tooltip" title="Starting Time">
-                                 <input type="date" name="start_time" id="start_time" class="form-control input-sm" placeholder="Start Time "/>
+                                 <input type="datetime-local" name="start_time" id="start_time" class="form-control input-sm" placeholder="Start Time "/>
                               </div>
                            </div>
                         </div>
@@ -112,7 +125,7 @@
                            <div class="form-group" >
                               <div class="col-xs-6 col-sm-6 col-md-6 centering">
                                  <a href="#" data-toggle="tooltip" title="Ending Time">
-                                 <input type="date" name="end_time" id="end_time" class="form-control input-sm" placeholder="End Time "/>
+                                 <input type="datetime-local" name="end_time" id="end_time" class="form-control input-sm" placeholder="End Time "/>
                               </div>
                            </div>
                         </div>

@@ -1,50 +1,50 @@
 <?php 
-    require_once'../includes/db_connect.php';
-    require_once'../includes/functions.php';
+	require_once'../includes/db_connect.php';
+	require_once'../includes/functions.php';
 
    if(isset($_GET["message"]))
    {
         $message = "Please Login To Continue or contact us :P (super admins)";
    }
 
-    if(isset($_POST["submit"]))
-    {
-        if(check_is_set($_POST))
-        {
-            if(check_empty($_POST))
-            {
-                $username=trim($_POST['username']);
-                $password=trim($_POST['password']);
+	if(isset($_POST["submit"]))
+	{
+		if(check_is_set($_POST))
+		{
+			if(check_empty($_POST))
+			{
+				$username=trim($_POST['username']);
+				$password=trim($_POST['password']);
 
-                if(!empty($username) && !empty($password))
-                {
-                    $username=$db->mysql_prep($username);
-                    $password=$db->mysql_prep($password);
-                    $db->connect();
+				if(!empty($username) && !empty($password))
+				{
+					$username=$db->mysql_prep($username);
+					$password=$db->mysql_prep($password);
+					$db->connect();
                $query = "SELECT username,password FROM admin where username='{$username}' AND password='{$password}'";
-                    $user=$db->query_database($query);
-                    
-                    if(is_null($db->fetch_array($user)))
-                    {
-                        echo "Incorrect details";
+					$user=$db->query_database($query);
+					
+					if(is_null($db->fetch_array($user)))
+					{
+						echo "Incorrect details";
 
-                    }else{
+					}else{
                   require_once'../includes/session.php';                  
                   set_username($username);
-                        redirect_to('create_test.php');
-                    }
-                }
-                else{
-                    echo "please enter details correctly";
-                }
+						redirect_to('create_test.php');
+					}
+				}
+				else{
+					echo "please enter details correctly";
+				}
 
-            }else{
-                echo "fields are empty";
-            }
-        }else{
-            echo "Data not set";
-        }
-    }
+			}else{
+				echo "fields are empty";
+			}
+		}else{
+			echo "Data not set";
+		}
+	}
 
  ?>
 <!DOCTYPE html>
@@ -87,7 +87,7 @@
                            <label for="username" class=" spaceX"style="float:left">Username</label>    
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
                               <div class="form-group">
-                                 <input type="text" name="username" id="username" class="form-control input-sm" placeholder="Username"/>
+                              	 <input type="text" name="username" id="username" class="form-control input-sm" placeholder="Username"/>
                               </div>
                            </div>
                         </div>
@@ -95,16 +95,16 @@
                            <label for="password" class=" spaceX"style="float:left">Password</label>    
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
                               <div class="form-group">
-                                 <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"/>
+                              	 <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password"/>
                               </div>
                            </div>
                         </div>
                         <div class="row">
-                            <div>
+                        	<div>
                            <center>
-                            <input type="submit" value="Login" name="submit" class="btn btn-success ">
+                        	<input type="submit" value="Login" name="submit" class="btn btn-success ">
                            </center>
-                            </div>
+                        	</div>
                         </div>
 
                      </form>

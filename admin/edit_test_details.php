@@ -5,10 +5,10 @@
   
    confirm_logged_in();
 
- var_dump(get_test_name());
-
+   var_dump(get_test_name());
+   $question_id=$_GET["question_id"];
   if(isset($_GET["message"])){
-    $message = "The question has been added";
+    $message = "The question has been updated";
   }
 
   if(isset($_POST["submit"])){
@@ -27,11 +27,10 @@
       $negative_marks = $db->mysql_prep($_POST["negative_marks"]);            
       $table_name = get_test_name()."_questions";     
       
-      $query = "Insert into " . $table_name ." (`question`, `option1`, `option2`, `option3`, `option4`, `correct_ans`, `marks`, `negative_marks`) 
-       VALUES('{$question}','{$option1}','{$option2}', '{$option3}', '{$option4}', '{$correct_ans}', '{$marks}', '{$negative_marks}')";      
+      $query = "UPDATE into " . $table_name ." SET question={$question},option1={$option1},option2={$option2},option3={$option3}, option4={$option4},correct_ans={$correct_ans},marks={$marks},negative_marks={$negative_marks} WHERE id={$question_id}";      
 
       if(!is_null($db->query_database($query))){
-        redirect_to("add_question.php?message=true");
+        redirect_to("edit_test_details.php?message=true&question_id={$question_id}");
       }else{
         echo ("Question cannot be added");
       }

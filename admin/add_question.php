@@ -5,7 +5,7 @@
   
    confirm_logged_in();
 
- var_dump(get_test_name());
+ //var_dump(get_test_name());
 
   if(isset($_GET["message"])){
     $message = "The question has been added";
@@ -66,7 +66,10 @@
             echo(show_message($message));
           }
         ?>
-      <div class="container" style="font-family: 'Titillium Web', sans-serif;">       
+      <div class="container" style="font-family: 'Titillium Web', sans-serif;">
+
+
+
          <div class="row centered-form">
             <div class="col-xs-12 col-sm-7 col-md-7 centering">
                <div class="panel panel-default">
@@ -122,7 +125,8 @@
 
                         </div>
                         <center>
-                        <input type="submit" value="Add Question" name="submit" class="btn  btn-lg btn-success"> 
+                        <input type="submit" value="Add Question" name="submit" class="btn  btn-lg btn-success">
+                        <a href="question_list.php?test_name=<?php echo get_test_name(); ?>" class="btn btn-info btn-lg " role="button">View questions</a> 
                         </center>                       
                      </form>
                   </div>

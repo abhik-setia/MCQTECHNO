@@ -99,7 +99,7 @@
                       <td>".$table_data["duration"]."</td>
                       <td><a href=\"view_users_of_table.php?test_name={$table_data["test_name"]}\">View Users</a></td>
                       <td><a href=\"question_list.php?test_name={$table_data["test_name"]}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
-		              <td><a href=\"delete_test.php?test_name={$table_data["test_name"]}\" onclick=\"return confirm('Are you sure you want to delete this item?');\" ><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
+		              <td><a href=\"delete_test.php?test_name={$table_data["test_name"]}\" onclick=\"return confirm('Are you sure you want to delete this test?');\" ><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
                       </tr>";
 		}
 		return $output;

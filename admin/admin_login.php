@@ -4,7 +4,7 @@
 
    if(isset($_GET["message"]))
    {
-        $message = "Congrats you won a 1 million dollars...   just joking, you just logged out. Bye Bye!!";
+        $message = "Congrats you won 1 million dollars...   just joking, you just logged out. Bye Bye!!";
    }
 
 
@@ -20,7 +20,8 @@
 				if(!empty($username) && !empty($password))
 				{
 					$username=$db->mysql_prep($username);
-					$password=sha1($db->mysql_prep($password));
+					$password=hash("sha256",$db->mysql_prep($password));
+          //var_dump($password);
                $db->connect();
                $query = "SELECT username,password FROM admin where username='{$username}' AND password='{$password}'";
 					$user=$db->query_database($query);

@@ -17,13 +17,13 @@
 
          if(check_empty($_POST)){
             $test_name = $db->mysql_prep($_POST["test_name"]);
-            //$start_time = convert_to_unix_time_stamp($_POST["start_time"]);
-            //$end_time = convert_to_unix_time($_POST["end_time"]);
+            $start_time = convert_to_unix_time_stamp($_POST["start_time"]);
+            $end_time = convert_to_unix_time($_POST["end_time"]);
             $event_date=$db->mysql_prep($_POST["event_date"]);
             $duration = $db->mysql_prep($_POST["duration"]);
             
-            $query = "Insert into ". TESTS_TABLE ." (username,test_name,event_date,duration) ".
-                  "values('{$username}','{$test_name}','{$event_date}',{$duration})";
+            $query = "Insert into ". TESTS_TABLE ." (username,test_name,start_time,end_time,event_date,duration) ".
+                  "values('{$username}','{}'{$test_name}','{$event_date}',{$duration})";
 
             $result = $db->query_database($query);
             if(is_null($result)){
@@ -139,7 +139,7 @@
                   <div class="row">
                              <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 centering'>
                                  <div class="form-group">
-                                     <div class='input-group date' id='datetimepicker1'>
+                                     <div class='input-group date' id='datetimepicker2'>
                                          <input type='text' class="form-control" name="start_time" id="start_time" placeholder="Start Time " />
                                          <span class="input-group-addon">
                                              <span class="glyphicon glyphicon-calendar"></span>
@@ -149,7 +149,7 @@
                              </div>
                              <script type="text/javascript">
                                  $(function () {
-                                     $('#datetimepicker1').datetimepicker();
+                                     $('#datetimepicker2').datetimepicker();
                                  });
                              </script>
                          </div>
@@ -158,7 +158,7 @@
                          <div class="row">
                              <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 centering'>
                                  <div class="form-group">
-                                     <div class='input-group date' id='datetimepicker1'>
+                                     <div class='input-group date' id='datetimepicker3'>
                                          <input type='text' class="form-control" name="end_time" id="end_time" placeholder="End Time "/>
                                          <span class="input-group-addon">
                                              <span class="glyphicon glyphicon-calendar"></span>
@@ -168,7 +168,7 @@
                              </div>
                              <script type="text/javascript">
                                  $(function () {
-                                     $('#datetimepicker1').datetimepicker();
+                                     $('#datetimepicker3').datetimepicker();
                                  });
                              </script>
                          </div>

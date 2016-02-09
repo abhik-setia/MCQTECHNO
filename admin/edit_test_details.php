@@ -1,67 +1,58 @@
 <?php
-   require_once("../includes/db_connect.php");
-   require_once("../includes/functions.php");
-   require_once("../includes/session.php");
-   require_once("utils/question.php");
-   require_once("utils/user.php");
+    require_once("../includes/db_connect.php");
+    require_once("../includes/functions.php");
+    require_once("../includes/session.php");
+    require_once("utils/question.php");
+    require_once("utils/user.php");
 
     confirm_logged_in();
 
-   if(isset($_POST["submit"])){
-      $db = new DB_CONNECT();    
+    if(isset($_POST["submit"])){
+        $db = new DB_CONNECT();    
 
-      // get username from the session
-      $username = get_username();
+        // get username from the session
+        $username = get_username();
 
-      if(check_is_set($_POST)){
+        if(check_is_set($_POST)){
 
-         if(check_empty($_POST)){
-            $test_name = $db->mysql_prep($_POST["test_name"]);
-            $start_time = strtotime($_POST["start_time"]);
-            $end_time = strtotime($_POST["end_time"]);
-            var_dump($start_time);
-            $event_date=$db->mysql_prep($_POST["event_date"]);
-            $duration = $db->mysql_prep($_POST["duration"]);
-            
-            // $query = "Insert into ". TESTS_TABLE ." (username,test_name,event_date,duration) ".
-            //       "values('{$username}','{$test_name}','{$event_date}',{$duration})";
+            if(check_empty($_POST)){
+                $test_name = $db->mysql_prep($_POST["test_name"]);
+                $start_time = make_sql_date_time($_POST["start_time"], "/" );            
+                $end_time = make_sql_date_time($_POST["end_time"], "/" );             
+                $event_date =$db->mysql_prep($_POST["event_date"]);
+                $duration = $db->mysql_prep($_POST["duration"]);
+                            
+                $query = "UPDATE test SET test_name='{$test_name}', username='{$username}',start_time='{$start_time}',
+                 end_time='{$end_time}',event_date='{$event_date}',duration='{$duration}' WHERE test_name='{$test_name}' " ;    
 
-             $query="UPDATE test SET test_name='{$test_name}',
-             username='{$username}',start_time='{$start_time}',
-             end_time='{$end_time}',event_date='{$event_date}',duration='{$duration}' " ;    
-
-            $result = $db->query_database($query);
-            if(is_null($result)){
-               // query failed
-               echo "query failed";
+                $result = $db->query_database($query);
+                if(is_null($result)){
+                   // query failed
+                   echo "query failed";
+                }else{                
+                    redirect_to("question_list.php?test_name=".get_test_name());                     
+                }
             }else{
-                  
-                  redirect_to("question_list.php?test_name=".get_test_name());                     
-            }
-         }else{
-            echo "empty fields";
-         }        
-      }else{
-         echo ("Someting was not set");
-      }
-   }else{
-      $db = new DB_CONNECT();  
-         //var_dump(get_test_name());
-         $query="SELECT * FROM test WHERE test_name='".get_test_name()."' AND username='".get_username()."' ";
-         $details=$db->query_database($query);   
-         if($db->number_of_rows($details) >0)
-         {
-               $i=1;
-                $row=$db->fetch_array($details);
-                $table_data=array();
-                $table_data["test_name"]=$row["test_name"];
-                $table_data["start_time"]=$row["start_time"];
-                $table_data["end_time"]=$row["end_time"];
-                $table_data["event_date"]=$row["event_date"];
-                $table_data["duration"]=$row["duration"];
-               
-         }
-     }    
+                echo "empty fields";
+            }        
+        }else{
+            echo ("Someting was not set");
+        }
+    }else{
+        $db = new DB_CONNECT();           
+        $query = "SELECT * FROM test WHERE test_name='". get_test_name(). "' AND username='".get_username()."' ";
+        $details = $db->query_database($query);   
+        if($db->number_of_rows($details) > 0){
+            $i=1;
+            $row = $db->fetch_array($details);
+            $table_data=array();
+            $table_data["test_name"] = $row["test_name"];
+            $table_data["start_time"] = $row["start_time"];
+            $table_data["end_time"] = $row["end_time"];
+            $table_data["event_date"] = $row["event_date"];
+            $table_data["duration"] = $row["duration"];            
+        }
+    }    
 ?>
 
 <!DOCTYPE html>
@@ -114,31 +105,12 @@
                                  <input type="text" required value="<?php echo $table_data["test_name"]; ?>" name="test_name" id="test_name" required class="form-control input-sm" placeholder="Test Name"/>
                               </div>
                            </div>
-                        </div>
-
-                         
- 
-                   <!-- <div class="row">
-                           <div class="form-group">
-                              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering" >
-                                 <a href="#" data-toggle="tooltip" title="Date of event">
-                                 <input type="text" name="event_date" id="datepicker-13" class="form-control input-sm" placeholder="Event Date"/>
-                                 
-                                 </a>
-
-                              </div>
-                           </div>
-                   </div> -->
+                        </div>                                             
                      
-                     <div class="row">
+                        <div class="row">
                              <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 centering'>
-                                 <div class="form-group">
-                                     <div class='input-group date' id='datetimepicker1'>
-                                         <input type='text' required class="form-control" value="<?php echo $table_data["event_date"];?>" name="event_date" id="event_date" placeholder="Event Date " />
-                                         <span class="input-group-addon">
-                                             <span class="glyphicon glyphicon-calendar"></span>
-                                         </span>
-                                     </div>
+                                 <div class="form-group">                                    
+                                    <input type='text' required class="form-control" value="<?php echo $table_data["event_date"];?>" name="event_date" id="event_date" placeholder="Event Date " />                                                                              
                                  </div>
                              </div>
                              <script type="text/javascript">
@@ -148,7 +120,7 @@
                              </script>
                          </div>
 
-                  <div class="row">
+                        <div class="row">
                              <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 centering'>
                                  <div class="form-group">
                                      <div class='input-group date' id='datetimepicker2'>
@@ -183,9 +155,7 @@
                                      $('#datetimepicker3').datetimepicker();
                                  });
                              </script>
-                         </div>
-                     
-
+                         </div>                    
                         
                         <div class="row">
                            <div class="form-group">
@@ -195,8 +165,8 @@
                            </div>
                         </div>
 
-                          <center> 
-                        <input type="submit" value="Update Details" name="submit" class="btn btn-success">
+                        <center> 
+                            <input type="submit" value="Update Details" name="submit" class="btn btn-success">
                         </center>
                      </form>
                   </div>

@@ -6,7 +6,8 @@
             margin-left:3%; 
          }
          .spaceButton{
-        		margin-left:10%; 
+        		margin-left:10%;
+                margin-top:10%;  
          }
          .spaceReset{
             margin-left: 78%;
@@ -35,4 +36,13 @@
          @font-face {
              font-family: Champagne;
              src: url(../fonts/xyz2.ttf);
+         }
+         #test_name_header{
+            margin-top:1%;
+            margin-right:3%;
+            font-family:champagne;   
+         }
+         #test_name_header:hover{
+            text-decoration: none;
+            color: white;
          }

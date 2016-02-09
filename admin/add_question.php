@@ -3,9 +3,10 @@
   require_once("../includes/functions.php");
   require_once("../includes/session.php");
   
+    
    confirm_logged_in();
 
- //var_dump(get_test_name());
+  //var_dump(get_test_name());
 
   if(isset($_GET["message"])){
     $message = "The question has been added";
@@ -67,9 +68,6 @@
           }
         ?>
       <div class="container" style="font-family: 'Titillium Web', sans-serif;">
-
-
-
          <div class="row centered-form">
             <div class="col-xs-12 col-sm-7 col-md-7 centering">
                <div class="panel panel-default">
@@ -115,7 +113,7 @@
 
                           <div class="row">
                                 <div class="form-group spaceX">
-                                    Negative Marks
+                                    Negative Marks (Marks should be enter in the positive value)
                                     <span class="col-lg-2">
                                     <input type="number" name="negative_marks" class="form-control input-sm"/>
                                     </span>

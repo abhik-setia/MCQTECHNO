@@ -42,29 +42,75 @@
 ?>
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Final Test</title>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="css/bootstrap.min.css" >
-      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
-      <link rel="stylesheet" type="text/css" href="css/final_test.css">  
-      <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
-      <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-      <script type="text/javascript " src="js/bootstrap.min.js"></script>
-      <script src="js/timer.js" type="text/javascript"></script>
-      <script src="js/common.js" type="text/javascript"></script>
-   </head>
-   <body>      
-         <?php include 'includes/header.php';?>
-         <div class="container progressBar col-lg- col-xs-8 col-sm-8 col-md-8">
+    <head>
+        <title>Final Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
+        <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="css/final_test.css">  
+        <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
+        <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript " src="js/bootstrap.min.js"></script>        
+        <script src="js/common.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="css/countdown.css">
+        <script type = "text/javascript" >
+            // to stop going to the previous page                 
+            history.pushState(null, null, 'final_test.php');
+            window.addEventListener('popstate', function(event) {
+                history.pushState(null, null, 'final_test.php');
+            });
+
+            $(document).ready(function(){   
+                var number_times_warned = 0;
+                // To stop opening of the new tab
+                window.addEventListener('focus', function(){
+                    document.title = 'focused';
+                });
+
+                var confirm_box_dismissed = null;                
+                var set_time_out = null;
+                window.addEventListener('blur', function(){                                                                                
+                    if(number_times_warned == 0){ 
+                        var before_confirm = new Date();                       
+                        confirm("You are not allowed to open a new window while taking the test. Neither you can minimize this application.");                        
+                        var after_confirm = new Date();
+                        if(after_confirm - before_confirm >= 10000){
+                            number_times_warned++;
+                        }
+                        number_times_warned++;                                                
+                    }else if(number_times_warned == 1){ 
+                        var before_confirm = new Date();                       
+                        confirm("You are warned earlier if you try to do it again the test will be finished. You are requested not to do it again.");                        
+                        var after_confirm = new Date();
+                        if(after_confirm - before_confirm >= 5000){
+                            number_times_warned++;
+                        }
+                        number_times_warned++;
+                    }else{                        
+                        confirm("Your test is finished now. You are a cheater.");                    
+                        var form = document.getElementById("final_test_form");
+                        var elements = form.elements;
+                        for (var i = 0, len = elements.length; i < len; ++i) {
+                            elements[i].disabled = true;
+                        }
+                        document.getElementById("submit_test").disabled = false;
+                        document.getElementById("final_test_form").submit();
+                    }                    
+                });                
+            });
+        </script>
+    </head>
+    <body>      
+        <?php include 'includes/header.php';?>
+        <div class="container progressBar col-lg- col-xs-8 col-sm-8 col-md-8">
             <div class="progress ">
-               <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"
                   aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%" id="progress_bar">
                   0%
-               </div>
+                </div>
             </div>
-         </div>
+        </div>
 
          <form method="post" action="user/thank_you.php" id="final_test_form">
             <div class="container-fluid " style="font-family: 'Titillium Web', sans-serif;">
@@ -77,20 +123,20 @@
                     </div>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 fixed " style="font-family: 'Titillium Web', sans-serif;">
-               		<div class="row ">
-               			<div class="well well-sm">
-               				<div class="panel panel-default">
-               					<div class="panel-heading">
-               						<b>Welcome!! <?php echo get_test_username();?></b>
-               					</div>
-               					<div class="panel-body">
-               						<p>Questions Answered : <ans id="answered_questions" >0</ans></p>
-               						<p>Questions Unanswered : <unans id="unanswered_questions">
-                                    <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>               						
-               					</div>
-               				</div>
-               			</div>
-               		</div>
+                    <div class="row ">
+                        <div class="well well-sm">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <b>Welcome!! <?php echo get_test_username();?></b>
+                                </div>
+                                <div class="panel-body">
+                                    <p>Questions Answered : <ans id="answered_questions" >0</ans></p>
+                                    <p>Questions Unanswered : <unans id="unanswered_questions">
+                                    <?php global $questions_array; echo $questions_array["number_of_questions"]; ?></p>                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                      <div class="row">
                         <ul class="pagination col-lg-12 col-md-12 col-xs-12 col-sm-12">
                         <?php 
@@ -102,16 +148,35 @@
                             } 
                         ?>
                         </ul> 
-                 	</div>
+                    </div>
 
-                  	<div class="container-fluid centered">
-                    	<img src="images/clock.jpg">
-                     	<div id='timer'></div>
-                     	<script type="text/javascript">window.onload = CreateTimer("timer", <?php echo get_test_duration(); ?>);</script>
-              	       <span class="pull-right spaceButton "><input type="submit" name="btnSubmit" value="Submit" class="btn btn-success"></span>      
-                  	</div>                                  
+                    <div class="container-fluid centered">
+                        <div id="clock">                        
+                          <script type="text/javascript">
+                            var deadline = new Date(Date.parse(new Date()) + <?php echo get_test_duration(); ?>*1000);
+                          </script>
+                          <div id="clockdiv" style="font-family: 'Titillium Web', sans-serif;">
+                            
+                            <div>
+                              <span class="hours"></span>
+                              <div class="smalltext">Hours</div>
+                            </div>
+                            <div>
+                              <span class="minutes"></span>
+                              <div class="smalltext">Minutes</div>
+                            </div>
+                            <div>
+                              <span class="seconds"></span>
+                              <div class="smalltext">Seconds</div>
+                            </div>
+                          </div>
+
+                        </div>
+                       <span class="pull-right spaceButton "><input id="submit_test" type="submit" name="btnSubmit" value="Submit" class="btn btn-success"></span>      
+                    </div>                                  
                </div>
-            </div>        	
-         </form>      
+            </div>          
+         </form>
+        <script type="text/javascript" src="js/countdown.js"></script>            
    </body>
 </html>

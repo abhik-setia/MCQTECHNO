@@ -4,16 +4,16 @@
     require_once'../includes/session.php';                  
     confirm_logged_in();
 
-   $db = new DB_CONNECT();      
+    $db = new DB_CONNECT();      
 
-   // get username from the session
-   $username = get_username();
-   $test_name = urldecode($_GET['test_name']);
+    // get username from the session
+    $username = get_username();
+    $test_name = urldecode($_GET['test_name']);
 
     //select all test created by him from test table
 
-   $query = "SELECT * FROM ".$test_name."_users";
-   $users_table = $db->query_database($query);
+    $query = "SELECT * FROM ".$test_name."_users";
+    $users_table = $db->query_database($query);
 
     if($db->number_of_rows($users_table)>0){
         $i=1;

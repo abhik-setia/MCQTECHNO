@@ -1,35 +1,35 @@
 <?php 
     require_once'../includes/db_connect.php';
     require_once'../includes/functions.php';
-     require_once'../includes/session.php';                                   
-   $db = new DB_CONNECT();      
-   // get username from the session
-   $username = get_username();
-   //select all test created by him from test table
+    require_once'../includes/session.php'; 
+    confirm_logged_in();                                  
+    $db = new DB_CONNECT();      
+    // get username from the session
+    $username = get_username();
+    //select all test created by him from test table
 
-   if(isset($_GET["message"])){
-    $message = "The Test has been deleted.";
-  }
+    if(isset($_GET["message"])){
+        $message = "The Test has been deleted.";
+    }
 
-   $query = "SELECT test_name,start_time,end_time,event_date,duration FROM test WHERE username='{$username}'";
-   $admin_tests=$db->query_database($query);
-    if($db->number_of_rows($admin_tests) >0)
-    {
-      $i=1;
-      while ($row=$db->fetch_array($admin_tests)){
-        $table_data=array();
-        $table_data_array[$i]=array();
-        $table_data["test_name"]=$row["test_name"];
-        $table_data["start_time"]=$row["start_time"];
-        $table_data["end_time"]=$row["end_time"];
-        $table_data["event_date"]=$row["event_date"];
-        $table_data["duration"]=$row["duration"];
-        $table_data_array[$i]=$table_data; 
-        $i++;
-      }
-    $no_of_rows=$i-1;
-    $table_data_array["number_of_rows"]=$no_of_rows;
-    $table_html=make_test_information_table();
+    $query = "SELECT test_name,start_time,end_time,event_date,duration FROM test WHERE username='{$username}'";
+    $admin_tests=$db->query_database($query);
+    if($db->number_of_rows($admin_tests) >0){
+        $i=1;
+        while ($row=$db->fetch_array($admin_tests)){
+            $table_data=array();
+            $table_data_array[$i]=array();
+            $table_data["test_name"]=$row["test_name"];
+            $table_data["start_time"]=$row["start_time"];
+            $table_data["end_time"]=$row["end_time"];
+            $table_data["event_date"]=$row["event_date"];
+            $table_data["duration"]=$row["duration"];
+            $table_data_array[$i]=$table_data; 
+            $i++;
+        }
+        $no_of_rows=$i-1;
+        $table_data_array["number_of_rows"]=$no_of_rows;
+        $table_html=make_test_information_table();
     } 
     else{
       //echo " No tables created by admin";

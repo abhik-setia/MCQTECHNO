@@ -1,14 +1,13 @@
 <?php
-  require_once("../includes/db_connect.php");
-  require_once("../includes/functions.php");
-  require_once("../includes/session.php");
+    require_once("../includes/db_connect.php");
+    require_once("../includes/functions.php");
+    require_once("../includes/session.php");
   
-   confirm_logged_in();
+    confirm_logged_in();
 
-  if(isset($_POST["submit"]))
-  {
-      $question_id=$_POST['question_id'];
-      $decode_url=$_POST['test_name'];
+    if(isset($_POST["submit"])){
+        $question_id = $_POST['question_id'];
+        $decode_url = $_POST['test_name'];
 
    		$table_name=$decode_url."_questions";	
         $table_data=array();
@@ -22,7 +21,7 @@
         $table_data["marks"]=$_POST["marks"];
         $table_data["negative_marks"]=$_POST["negative_marks"];
         
-        $query="UPDATE ".$table_name." SET question='{$table_data["question"]}'
+        $query = "UPDATE ".$table_name." SET question='{$table_data["question"]}'
         ,option1='{$table_data["option1"]}',option2='{$table_data["option2"]}',
         option3='{$table_data["option3"]}',option4='{$table_data["option4"]}',
         correct_ans='{$table_data["correct_ans"]}',marks='{$table_data["marks"]}',
@@ -30,38 +29,33 @@
 
         $update_query_result=$db->query_database($query);
         if($update_query_result!=NULL)
-        redirect_to("question_list.php?test_name={$decode_url}");
+            redirect_to("question_list.php?test_name={$decode_url}");
 
-  }else
-{
-  $question_id=$_GET['question_id'];
-  $decode_url=$_GET['test_name'];
-  $db = new DB_CONNECT();      	
-  $query = "SELECT * FROM ".$decode_url."_questions WHERE id='{$question_id}' ";
-  $question=$db->query_database($query); 
-  if($db->number_of_rows($question) >0)
-    {
-    	$i=1;
-    	while ($row=$db->fetch_array($question)){
-
-        $table_data=array();
-        $table_data_array[$i]=array();
-        $table_data["question_id"]=$row["id"];
-        $table_data["question"]=$row["question"];
-        $table_data["option1"]=$row["option1"];
-        $table_data["option2"]=$row["option2"];
-        $table_data["option3"]=$row["option3"];
-        $table_data["option4"]=$row["option4"];
-        $table_data["correct_ans"]=$row["correct_ans"];
-        $table_data["marks"]=$row["marks"];
-        $table_data["negative_marks"]=$row["negative_marks"];
-        $table_data_array[$i]=$table_data; 
-        $i++;
-
-    	}
-
-    }
- } 
+    }else{
+        $question_id = $_GET['question_id'];
+        $decode_url = $_GET['test_name'];
+        $db = new DB_CONNECT();      	
+        $query = "SELECT * FROM ".$decode_url."_questions WHERE id='{$question_id}' ";
+        $question = $db->query_database($query); 
+        if($db->number_of_rows($question) >0){
+        	$i = 1;
+        	while ($row=$db->fetch_array($question)){
+                $table_data = array();
+                $table_data_array[$i] = array();
+                $table_data["question_id"] = $row["id"];
+                $table_data["question"] = $row["question"];
+                $table_data["option1"] = $row["option1"];
+                $table_data["option2"] = $row["option2"];
+                $table_data["option3"] = $row["option3"];
+                $table_data["option4"] = $row["option4"];
+                $table_data["correct_ans"] = $row["correct_ans"];
+                $table_data["marks"] = $row["marks"];
+                $table_data["negative_marks"] = $row["negative_marks"];
+                $table_data_array[$i] = $table_data; 
+                $i++;
+        	}
+        }
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -71,8 +65,7 @@
          <?php
             include("admin_includes/head_section.php");
          ?>
-         <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
-    
+         <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>          
    </head>
 
     <style>
@@ -106,7 +99,7 @@
                         <div class="c-inputs-stacked">
                           <p> Mark the option which is correct.</p>                          
 
-                          <?php                               
+                        <?php                               
                             for($i=1 ; $i<= 4; $i++){
                             	$option_value=$table_data["option".$i];
                             	$check_radio="";
@@ -125,8 +118,7 @@
                                         </div>
                                   </div>";
                             }
-
-                          ?>                        
+                        ?>                        
 
                           <br>
                           <div class="row">

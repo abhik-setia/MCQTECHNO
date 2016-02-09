@@ -7,6 +7,25 @@
 		}
 	}
 
+	function make_sql_date_time($string){		
+		$array_of_strings = explode("/", $string);		
+		$month = $array_of_strings[0];
+		$day = $array_of_strings[1];
+		$new_array = explode(" ",$array_of_strings[2]);
+		$year = $new_array[0];
+		$am_pm = $new_array[2];
+		$time_array = explode(":", $new_array[1]);
+		$hours = $time_array[0];
+		$minutes = $time_array[1];
+		if(strcmp($am_pm,"PM") == 0){
+			$hours = strval(intval($hours)+12);
+		}else{
+			$hours = "0" . $hours;
+		}
+		return $year . "-" . $month . "-" . $day . " " . "{$hours}:{$minutes}:00"; 
+
+	}
+
 	function redirect_to($location = NULL){
 		if($location !=NULL){
 			header("Location: {$location}");
@@ -34,8 +53,12 @@
 		return (isset($var) && !empty($var));
 	}
 
+	function convert_to_unix_time($time){
+		return strftime("m/d/Y h:i A",$time);
+	}
+
 	function show_message($message){
-		$message_box = "<div class=\"container\" style=\"margin-top:6%;\"><div class=\"alert alert-warning alert-dismissible\" role=\"alert\" id=\"alertMessage\">
+		$message_box = "<div class=\"container\" id=\"message_container\" style=\"margin-top:6%;\"><div class=\"alert alert-warning alert-dismissible\" role=\"alert\" id=\"alertMessage\">
   		<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
   			<span aria-hidden=\"true\" id=\"closeButton\">&times;</span>
   		</button> {$message}

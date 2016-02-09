@@ -1,10 +1,10 @@
 $(document).ready(function(){					
 	$('[data-toggle="tooltip"]').tooltip();
 
-	$("#closeButton").click(function(){				
+	$("#closeButton").click(function(){				        
 		$("#alertMessage").hide(2000);
+        $("#message_container").hide(2000);
 	});
-
 });	
 
 function getCookie(name) {

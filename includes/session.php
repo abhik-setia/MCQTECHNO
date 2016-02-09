@@ -1,7 +1,8 @@
 <?php		
 	session_start();
+
 	function logged_in(){
-		return isset($_SESSION['username']);
+		return isset($_SESSION['username']) && !is_null($_SESSION["username"]);
 	}
 	
 	function confirm_logged_in(){

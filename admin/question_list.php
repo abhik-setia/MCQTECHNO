@@ -4,7 +4,7 @@
      require_once'../includes/session.php';                  
                  
    $db = new DB_CONNECT();      
-
+   confirm_logged_in();
    // get username from the session
    $username = get_username();
    $decode_url=urldecode($_GET['test_name']);

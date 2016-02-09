@@ -13,7 +13,13 @@
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
-       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
+      <link rel="stylesheet" type="text/css" href="../css/test_details.css">
+      <script type = "text/javascript" >
+            history.pushState(null, null, 'rules_regulations.php');
+            window.addEventListener('popstate', function(event) {
+                history.pushState(null, null, 'rules_regulations.php');
+            });
+      </script>
          
    </head>
    <body>
@@ -28,8 +34,7 @@
          </div>
          <div class="panel-body">
             <ul class="list-group">
-             <li class="list-group-item" ><pre style="font-size:1.3em"><?php global $content; echo $content; ?></pre></li>                  
-             
+             <li class="list-group-item" ><pre style="font-size:1.3em"><?php global $content; echo $content; ?></pre></li>                               
             </ul>
          </div>
 

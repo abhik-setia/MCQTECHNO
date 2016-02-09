@@ -4,12 +4,12 @@
    require_once("../includes/session.php");
    require_once("utils/question.php");
    require_once("utils/user.php");
-
+    
     confirm_logged_in();
 
    if(isset($_POST["submit"])){
       $db = new DB_CONNECT();    
-
+      var_dump($_POST);
       // get username from the session
       $username = get_username();
 
@@ -17,15 +17,16 @@
 
          if(check_empty($_POST)){
             $test_name = $db->mysql_prep($_POST["test_name"]);
-            $start_time = convert_to_unix_time_stamp($_POST["start_time"]);
-            $end_time = convert_to_unix_time($_POST["end_time"]);
-            $event_date=$db->mysql_prep($_POST["event_date"]);
+            $start_time = make_sql_date_time($_POST["start_time"], "/" );            
+            $end_time = make_sql_date_time($_POST["end_time"], "/" );                          
+            $event_date = ($_POST["event_date"]);
             $duration = $db->mysql_prep($_POST["duration"]);
             
-            $query = "Insert into ". TESTS_TABLE ." (username,test_name,start_time,end_time,event_date,duration) ".
-                  "values('{$username}','{}'{$test_name}','{$event_date}',{$duration})";
-
+            $query = "Insert into ". TESTS_TABLE ." (username, test_name, start_time, end_time, event_date, duration) ".
+                  "values('{$username}', '{$test_name}', '{$start_time}', '{$end_time}','{$event_date}','{$duration}')";
+                        
             $result = $db->query_database($query);
+
             if(is_null($result)){
                // query failed
                echo "query failed";
@@ -121,12 +122,12 @@
                      <div class="row">
                              <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6 centering'>
                                  <div class="form-group">
-                                     <div class='input-group date' id='datetimepicker1'>
-                                         <input type='text' class="form-control" name="event_date" id="event_date" placeholder="Event Date " />
-                                         <span class="input-group-addon">
+                                     <!-- <div class='input-group date' id='datetimepicker1'> -->
+                                         <input type='date' class="form-control" name="event_date" id="event_date" placeholder="Event Date " />
+                                         <!-- <span class="input-group-addon">
                                              <span class="glyphicon glyphicon-calendar"></span>
-                                         </span>
-                                     </div>
+                                         </span> -->
+                                     <!-- </div> -->
                                  </div>
                              </div>
                              <script type="text/javascript">

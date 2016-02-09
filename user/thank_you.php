@@ -34,16 +34,25 @@
                 $score += $marks;
                 $number_of_correct_ans++;                
             }else{
-                $score -= $negative_marks;
+                $score -= abs($negative_marks);
                 $number_of_wrong_ans++;  
                 $marks = $negative_marks;
-            }
-            //setcookie($_COOKIE[$i], null, -1, '/');
+            }            
         }else{
             $number_of_unattempted_questions++;
             $your_ans = "Not attempted";
             $marks = 0;
         }
+        if(strcmp(md5("option1"), $correct_ans)){
+            $correct_ans = "option1";
+        }else if(strcmp(md5("option2"), $correct_ans)){
+            $correct_ans = "option2";
+        }else if(strcmp(md5("option3"), $correct_ans)){
+            $correct_ans = "option3";
+        }else{
+            $correct_ans = "option4";
+        }
+
         $content_to_write .= "{$i}. Your Ans : {$your_ans} ". PHP_EOL 
                             . "{$i}. Correct Answer : {$correct_ans} " . PHP_EOL  
                             . "Marks Scored : {$marks}" . PHP_EOL ;
@@ -86,10 +95,11 @@
       <link rel="stylesheet" type="text/css" href="../css/final_test.css">  
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
       <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-      <script type="text/javascript">
-        // window.onbeforeunload = function(){        
-        //     return "Are you sure you want to quit?";
-        // }
+      <script type = "text/javascript" >
+            history.pushState(null, null, 'thank_you.php');
+            window.addEventListener('popstate', function(event){
+                history.pushState(null, null, 'thank_you.php');
+            });
       </script>
    </head>
    <body>

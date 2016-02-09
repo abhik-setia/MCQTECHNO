@@ -12,9 +12,7 @@
             // email check is not made yet 
             // also check the email id doesnot exit there... :P
             $phone_number = $db->mysql_prep(trim($_POST['phone_number']));                                         
-            //$user_test_table = get_test_name()."_users";
-            $user_test_table = $_GET['test_name']."_users";
-            set_test_name($_GET['test_name']);
+            $user_test_table = get_test_name()."_users";
             $query = "Insert into ". $user_test_table ." (first_name, last_name, email, phone_number) ".
                   " values('{$first_name}', '{$last_name}', '{$email}', '{$phone_number}')";
             $result = $db->query_database($query);
@@ -41,16 +39,13 @@
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
       <script type="text/javascript" src="../js/bootstrap-formhelpers-phone.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
        <script type="text/javascript" src="../js/common.js"></script>
-       <script type="text/javascript" src="../js/particles.min.js"></script>
-       <script src="../js/particles.js"></script>
-       <script src="http://vincentgarreau.com/particles.js/particles.js"></script>
    </head>
 
    <body>
    <?php include '../includes/header.php'; ?>
-   <div id="particles-js">
-   <div class="container">
+   <div class="container" style="font-family: 'Titillium Web', sans-serif;">
         <div class="row centered-form">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 centering ">
          <div class="panel panel-default">
@@ -63,8 +58,7 @@
                      <div class="row">
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                            <div class="form-group">
-                           <a href="#" data-toggle="tooltip" title="First Name Please :D">
-                         <input type="text" name="first_name" id="first_name" required class="form-control input-sm" placeholder="First Name">
+                             <input type="text" name="first_name" id="first_name" required class="form-control input-sm" placeholder="First Name">
                            </div>
                         </div>
                       </div>
@@ -72,8 +66,6 @@
                       <div class="row">  
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                            <div class="form-group">
-                              <a href="#" data-toggle="tooltip" title="Last Name Please :D">
-                        
                               <input type="text" name="last_name" id="last_name" required class="form-control input-sm" placeholder="Last Name">
                            </div>
                         </div>
@@ -82,7 +74,6 @@
                       <div class="row">  
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                            <div class="form-group">
-                              <a href="#" data-toggle="tooltip" title=" Email Please :D">                        
                               <input type="email" name="email" id="email" required class="form-control input-sm" placeholder=" Your Email  :)">
                            </div>
                         </div>
@@ -91,14 +82,11 @@
                        <div class="row">  
                         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 centering">
                            <div class="form-group">
-                              <a href="#" data-toggle="tooltip" title="Phone no Please :D">                        
                               <input type="tel" name="phone_number" maxlength="10" id="phone_number" required class="form-control input-sm" placeholder=" Your Mobile number">
                            </div>
                         </div>
                      </div>
-                     <center>
-                      <a href="#" data-toggle="tooltip" >
-                        
+                     <center>    
                      <input type="submit" type="tel" name="register" value="Register" class="btn btn-info ">
                      </center>
                   </form>
@@ -107,5 +95,5 @@
          </div>
       </div>
     </div>
-    </div>
+    
  </body>

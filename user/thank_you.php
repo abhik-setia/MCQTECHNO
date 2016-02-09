@@ -36,18 +36,19 @@
             }else{
                 $score -= abs($negative_marks);
                 $number_of_wrong_ans++;  
-                $marks = $negative_marks;
+                $marks = -(abs($negative_marks));
             }            
         }else{
             $number_of_unattempted_questions++;
             $your_ans = "Not attempted";
             $marks = 0;
         }
-        if(strcmp(md5("option1"), $correct_ans)){
+
+        if(strcmp(md5("option1"), $correct_ans) == 0){
             $correct_ans = "option1";
-        }else if(strcmp(md5("option2"), $correct_ans)){
+        }else if(strcmp(md5("option2"), $correct_ans) == 0){
             $correct_ans = "option2";
-        }else if(strcmp(md5("option3"), $correct_ans)){
+        }else if(strcmp(md5("option3"), $correct_ans) == 0){
             $correct_ans = "option3";
         }else{
             $correct_ans = "option4";
@@ -68,6 +69,7 @@
     $content_to_write = "Total Questions : {$number_of_questions}" . PHP_EOL .
                         "Questions Attempted : {$number_of_attempted_questions}" . PHP_EOL . 
                         "Questions Unattempted : {$number_of_unattempted_questions}". PHP_EOL . 
+                        "Marks Scored : {$score} " . PHP_EOL .   
                         $content_to_write ;
 
     fwrite($file, $content_to_write);
@@ -76,7 +78,7 @@
     $result = $db->query_database($query);          
     if($result != NULL){
         if($db->rows_affected($result)!=0){
-            remove_all_cookies();
+           remove_all_cookies();
         }
     }else{
         echo "Query failed";

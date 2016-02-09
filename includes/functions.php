@@ -1,5 +1,4 @@
 <?php	
-	
 	function remove_all_cookies(){		
 		foreach ($_COOKIE as $key => $value){			
     		unset($value);

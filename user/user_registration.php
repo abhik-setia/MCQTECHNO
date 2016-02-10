@@ -39,6 +39,7 @@
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
       <script type="text/javascript" src="../js/bootstrap-formhelpers-phone.js"></script>
+      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
        <script type="text/javascript" src="../js/common.js"></script>
    </head>

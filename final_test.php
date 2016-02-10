@@ -62,6 +62,8 @@
             });
 
             $(document).ready(function(){   
+
+
                 var number_times_warned = 0;
                 // To stop opening of the new tab
                 window.addEventListener('focus', function(){
@@ -177,6 +179,11 @@
                </div>
             </div>          
          </form>
-        <script type="text/javascript" src="js/countdown.js"></script>            
+        <script type="text/javascript" src="js/countdown.js"></script>
+        <script type="text/javascript">
+            var test_name_header=document.getElementById('test_name_header');
+            test_name_header.innerHTML="<?php echo get_test_name(); ?>";
+
+        </script>            
    </body>
 </html>

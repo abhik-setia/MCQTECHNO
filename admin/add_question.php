@@ -51,7 +51,8 @@
             include("admin_includes/head_section.php");
          ?>
          <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
-    
+          <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
+      
    </head>
 
     <style>

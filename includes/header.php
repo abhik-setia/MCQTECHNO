@@ -12,7 +12,7 @@
             <a class="navbar-brand champagne" style="margin:0%" href="#" >
                 Techspardha<br><span style="font-size: .4em" class="pull-right"> 26-29 feb</span>
             </a>
-            <a href="" id="test_name_header" class="pull-right"></a>
+            <a href="" id="test_name_header" class="pull-right" ></a>
        </div>               
     </div>
 </nav>

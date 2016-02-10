@@ -111,17 +111,17 @@
 		$output="";
 
 		for ($i=1; $i<=$no_of_rows; $i++) { 
-			$table_data=$table_data_array[$i];
-			
+			$table_data = $table_data_array[$i];
+			$test_name = $table_data["test_name"];
 			$output.="<tr>
                       <td>".$table_data["test_name"]."</td>
                       <td>".$table_data["start_time"]."</td>
                       <td>".$table_data["end_time"]."</td>
                       <td>".$table_data["event_date"]."</td>
                       <td>".$table_data["duration"]."</td>
-                      <td><a href=\"view_users_of_table.php?test_name={$table_data["test_name"]}\">View Users</a></td>
-                      <td><a href=\"question_list.php?test_name={$table_data["test_name"]}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
-		              <td><a href=\"delete_test.php?test_name={$table_data["test_name"]}\" onclick=\"return confirm('Are you sure you want to delete this test?');\" ><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
+                      <td><a href=\"view_users_of_table.php?test_name=". $test_name . "\">View Users</a></td>
+                      <td><a href=\"question_list.php?test_name=". $test_name . "\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
+		              <td><a href=\"delete_test.php?test_name=". $test_name . "\" onclick=\"return confirm('Are you sure you want to delete this test?');\" ><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
                       </tr>";
 		}
 		return $output;

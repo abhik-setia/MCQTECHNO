@@ -68,8 +68,6 @@
             });
 
             $(document).ready(function(){   
-
-
                 var number_times_warned = 0;
                 // To stop opening of the new tab
                 window.addEventListener('focus', function(){

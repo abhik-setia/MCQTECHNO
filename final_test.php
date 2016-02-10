@@ -1,7 +1,13 @@
 <?php
     require_once("includes/db_connect.php");
+    require_once("includes/config.php");
     require_once("includes/functions.php"); 
     require_once("includes/session.php"); 
+
+    if(!isset($_SESSION['test_name'])){
+        set_error_message(TEST_NAME_NOT_FOUND);
+        redirect_to("tests/error.php");
+    }
 
     $questions_array = array();
             
@@ -75,6 +81,11 @@
                         var before_confirm = new Date();                       
                         confirm("You are not allowed to open a new window while taking the test. Neither you can minimize this application.");                        
                         var after_confirm = new Date();
+                        if(after_confirm - before_confirm >= 60000){
+                            alert("DUDE THATS IT !! ,YOU ARE DONE...");
+                            document.getElementById("final_test_form").submit();
+                        } 
+                        
                         if(after_confirm - before_confirm >= 10000){
                             number_times_warned++;
                         }
@@ -101,7 +112,7 @@
             });
         </script>
     </head>
-    <body>      
+    <body style="">      
         <?php include 'includes/header.php';?>
         <div class="container progressBar col-lg- col-xs-8 col-sm-8 col-md-8">
             <div class="progress ">
@@ -177,6 +188,11 @@
                </div>
             </div>          
          </form>
-        <script type="text/javascript" src="js/countdown.js"></script>            
+        <script type="text/javascript" src="js/countdown.js"></script>
+        <script type="text/javascript">
+            var test_name_header=document.getElementById('test_name_header');
+            test_name_header.innerHTML="<?php echo get_test_name(); ?>";
+
+        </script>            
    </body>
 </html>

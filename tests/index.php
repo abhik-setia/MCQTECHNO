@@ -1,5 +1,6 @@
 <?php
 	require_once('../includes/db_connect.php');
+	require_once('../includes/config.php');
 	require_once('../includes/session.php');
 	require_once('../includes/functions.php');
 
@@ -18,17 +19,19 @@
 					set_test_duration($row["duration"]);
 					redirect_to("../user/user_registration.php");
 				}else if($current_unix_timestamp < $test_start_unix_timestamp){
-					$_SESSION["message_test_time_not_correct"] = "The test have not started yet";					
+					set_error_message(TEST_NOT_STARTED);					
 					redirect_to("error.php");
 				}else if($current_unix_timestamp > $test_end_unix_timestamp){								
-					$_SESSION["message_test_time_not_correct"] = "The test has ended :P";
+					set_error_message(TEST_HAS_ENDED);					
 					redirect_to("error.php");
 				}
 			}
 		}else{
-			echo " This is abc";
+			set_error_message(TEST_NAME_NOT_FOUND);
+			redirect_to("error.php");
 		}
 	}else{
-		echo "Enter the test_name";
+		set_error_message(TEST_NAME_NOT_FOUND);
+		redirect_to("error.php");
 	}
 ?>

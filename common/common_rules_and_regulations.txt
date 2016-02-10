@@ -1,4 +1,5 @@
 1. You are not allowed to open a new tab or window during the test.
-2. If you try to open new tab or window one warning will be given to you. 
-   If again try to open the new tab the test will be ended right away.
-3. Dont try to cheat during the test.
+2. If you try to open new tab or window one warning will be given to you.
+3. And a timer of 10s will be fired as soon as you try to go outside the test window for 1st warning.
+4. If again try to open the new tab the test will be ended right away.
+5. Dont try to cheat during the test. We are watching you :P

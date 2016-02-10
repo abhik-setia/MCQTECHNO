@@ -38,6 +38,10 @@
              src: url(../fonts/xyz2.ttf);
          }
          #test_name_header{
+            font-size:3em; 
+         }
+
+         #test_name_header{
             margin-top:1%;
             margin-right:3%;
             font-family:champagne;   
@@ -45,4 +49,7 @@
          #test_name_header:hover{
             text-decoration: none;
             color: white;
+         }
+         xmp{
+            margin: 0%;
          }

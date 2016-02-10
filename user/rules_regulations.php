@@ -1,4 +1,10 @@
-<?php 
+<?php
+    require_once("../includes/config.php");
+    require_once("../includes/session.php");   
+    if(!isset($_SESSION['test_name'])){
+        set_error_message(TEST_NAME_NOT_FOUND);
+        redirect_to("../tests/error.php");
+    } 
     $file = "../common/common_rules_and_regulations.txt";
     $content = file_get_contents($file);                        
 ?>
@@ -10,6 +16,7 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="../css/bootstrap.min.css" >
+      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>

@@ -24,22 +24,20 @@
           //var_dump($password);
                $db->connect();
                $query = "SELECT username,password FROM admin where username='{$username}' AND password='{$password}'";
-					$user=$db->query_database($query);
+					     $user=$db->query_database($query);
 					
 					if(is_null($db->fetch_array($user)))
 					{
-						$message = "Incorrect Details,Please Login again..";
+						    $message = "Incorrect Details,Please Login again..";
 					}else{
                   require_once'../includes/session.php';                  
                   set_username($username);
-						redirect_to('create_test.php');
+						      redirect_to('create_test.php');
 					}
 				}
 				else{
 					echo "please enter details correctly";
-
 				}
-
 			}else{
 				echo "fields are empty";
           }
@@ -49,10 +47,11 @@
 	}
 
  ?>
+
 <!DOCTYPE html>
 <html>
    <head>
-      <title>
+      <title> Admin Login
       </title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -75,17 +74,17 @@
    <body>
    <?php include("../includes/header2.php");
 
-   global $message;
+          global $message;
           if(check_var($message)){
             echo(show_message($message));
           } 
-  
+
           ?>
 
              <script type="text/javascript">
-          var logout_button=document.getElementById('logout_button');
-          logout_button.style.visibility='hidden';
-          </script>
+                var logout_button=document.getElementById('logout_button');
+                logout_button.style.visibility='hidden';
+             </script>
 
       <div class="container" style="font-family: 'Titillium Web', sans-serif;">
          <div class="row centered-form">

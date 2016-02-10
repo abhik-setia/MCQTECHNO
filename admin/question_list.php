@@ -49,11 +49,12 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>
+      <title>Question List
       </title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="../css/bootstrap.min.css" >
+      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
@@ -62,7 +63,7 @@
    </head>
    <body>
    <?php include("../includes/header.php"); ?>
-   <div class="container" style="font-family: 'Titillium Web', sans-serif;">
+   <div class="container-fluid" style="font-family: 'Titillium Web', sans-serif;">
       <div class="panel panel-default">
         <div class="panel-heading"> <a href="view_test.php" class="btn btn-info ">
           <span class="glyphicon glyphicon-menu-left"></span> Back

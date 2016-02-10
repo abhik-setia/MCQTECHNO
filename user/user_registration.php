@@ -1,10 +1,15 @@
-<?php 
+  <?php 
     require_once'../includes/db_connect.php';
+    require_once'../includes/config.php';
     require_once'../includes/functions.php';
     require_once'../includes/session.php';
 
-    if(isset($_POST["register"])){
+    if(!isset($_SESSION['test_name'])){
+        set_error_message(TEST_NAME_NOT_FOUND);
+        redirect_to("../tests/error.php");
+    }
 
+    if(isset($_POST["register"])){
         if(check_empty($_POST)){
             $first_name = $db->mysql_prep(trim($_POST['first_name']));
             $last_name = $db->mysql_prep(trim($_POST['last_name']));
@@ -20,10 +25,10 @@
                 set_test_username($email);
                 redirect_to("rules_regulations.php");
             }else{
-                echo("Query failed : User exists");
+                 redirect_to("user_registration.php?message=true");
             }
         }else{
-            echo "empty fields";
+            //echo "empty fields";
         }
     }
 ?>
@@ -39,6 +44,7 @@
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
       <script type="text/javascript" src="../js/bootstrap-formhelpers-phone.js"></script>
+      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
       <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
        <script type="text/javascript" src="../js/common.js"></script>
    </head>
@@ -47,6 +53,15 @@
    <?php include '../includes/header.php'; ?>
    <div class="container" style="font-family: 'Titillium Web', sans-serif;">
         <div class="row centered-form">
+
+
+        <?php 
+          
+          if(isset($_GET["message"])){
+             echo(show_message(USER_EXISTS));
+          } 
+
+         ?>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 centering ">
          <div class="panel panel-default">
             <div class="panel-heading">

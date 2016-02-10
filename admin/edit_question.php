@@ -9,37 +9,42 @@
         $question_id = $_POST['question_id'];
         $decode_url = $_POST['test_name'];
 
-   		$table_name=$decode_url."_questions";	
-        $table_data=array();
-        $table_data["question_id"]=$_POST["question_id"];
-        $table_data["question"]=$_POST["question"];
-        $table_data["option1"]=$_POST["option1"];
-        $table_data["option2"]=$_POST["option2"];
-        $table_data["option3"]=$_POST["option3"];
-        $table_data["option4"]=$_POST["option4"];
-        $table_data["correct_ans"]=$_POST["radio"];
-        $table_data["marks"]=$_POST["marks"];
-        $table_data["negative_marks"]=$_POST["negative_marks"];
-        
-        $query = "UPDATE ".$table_name." SET question='{$table_data["question"]}'
-        ,option1='{$table_data["option1"]}',option2='{$table_data["option2"]}',
-        option3='{$table_data["option3"]}',option4='{$table_data["option4"]}',
-        correct_ans='{$table_data["correct_ans"]}',marks='{$table_data["marks"]}',
-        negative_marks='{$table_data["negative_marks"]}'  WHERE id={$table_data["question_id"]} ";
+        $keys = array( "question", "option1", "option2", "option3", 
+            "option4", "radio", "marks", "negative_marks" );
 
-        $update_query_result=$db->query_database($query);
-        if($update_query_result!=NULL)
-            redirect_to("question_list.php?test_name={$decode_url}");
+        if( !array_diff($keys, array_keys($_POST)) && check_is_set($_POST)){
+          $table_name = $decode_url."_questions"; 
+            $table_data = array();
 
+            $table_data["question_id"] = $db->mysql_prep($_POST["question_id"]);
+            $table_data["question"] = $db->mysql_prep($_POST["question"]);
+            $table_data["option1"] = $db->mysql_prep($_POST["option1"]);
+            $table_data["option2"] = $db->mysql_prep($_POST["option2"]);
+            $table_data["option3"] = $db->mysql_prep($_POST["option3"]);
+            $table_data["option4"] = $db->mysql_prep($_POST["option4"]);
+            $table_data["correct_ans"] = $db->mysql_prep($_POST["radio"]);
+            $table_data["marks"] = $db->mysql_prep($_POST["marks"]);
+            $table_data["negative_marks"] = $db->mysql_prep($_POST["negative_marks"]);
+            
+            $query = "UPDATE ".$table_name." SET question='{$table_data["question"]}'
+            ,option1='{$table_data["option1"]}',option2='{$table_data["option2"]}',
+            option3='{$table_data["option3"]}',option4='{$table_data["option4"]}',
+            correct_ans='{$table_data["correct_ans"]}',marks='{$table_data["marks"]}',
+            negative_marks='{$table_data["negative_marks"]}'  WHERE id={$table_data["question_id"]} ";
+
+            $update_query_result=$db->query_database($query);
+            if($update_query_result!=NULL)
+                redirect_to("question_list.php?test_name={$decode_url}");
+        }
     }else{
-        $question_id = $_GET['question_id'];
-        $decode_url = $_GET['test_name'];
-        $db = new DB_CONNECT();      	
-        $query = "SELECT * FROM ".$decode_url."_questions WHERE id='{$question_id}' ";
+        $question_id = urldecode($_GET['question_id']);
+        $decode_url = urldecode($_GET['test_name']);
+        
+        $query = "SELECT * FROM ". $decode_url . "_questions WHERE id='{$question_id}' ";
         $question = $db->query_database($query); 
         if($db->number_of_rows($question) >0){
-        	$i = 1;
-        	while ($row=$db->fetch_array($question)){
+          $i = 1;
+          while ($row=$db->fetch_array($question)){
                 $table_data = array();
                 $table_data_array[$i] = array();
                 $table_data["question_id"] = $row["id"];
@@ -53,7 +58,7 @@
                 $table_data["negative_marks"] = $row["negative_marks"];
                 $table_data_array[$i] = $table_data; 
                 $i++;
-        	}
+          }
         }
     } 
 ?>
@@ -65,7 +70,9 @@
          <?php
             include("admin_includes/head_section.php");
          ?>
-         <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>          
+         <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'> 
+         <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
+               
    </head>
 
     <style>
@@ -101,13 +108,13 @@
 
                         <?php                               
                             for($i=1 ; $i<= 4; $i++){
-                            	$option_value=$table_data["option".$i];
-                            	$check_radio="";
+                              $option_value=$table_data["option".$i];
+                              $check_radio="";
 
-                            	if(strcmp($table_data["correct_ans"],"option".$i)==0)
-                            	{
-                            		$check_radio=" checked=\"true\" ";
-                            	}
+                              if(strcmp($table_data["correct_ans"],"option".$i)==0)
+                              {
+                                $check_radio=" checked=\"true\" ";
+                              }
                               echo"<br>
                                     <div class=\"row\">
                                         <div class=\"form-group spaceX\">
@@ -142,7 +149,7 @@
                           <br>
                            <div class="row">
                                 <div class="form-group spaceX hidden">
-                                    Negative Marks
+                                    Test Name
                                     <span class="col-lg-2">
                                     <input  type="text" name="test_name" value="<?php echo $decode_url ?>"class="form-control input-sm"/>
                                     </span>
@@ -151,7 +158,7 @@
                           <br>
                            <div class="row">
                                 <div class="form-group spaceX hidden">
-                                    Negative Marks
+                                    Question ID
                                     <span class="col-lg-2">
                                     <input  type="text" name="question_id" value="<?php echo $question_id; ?>"class="form-control input-sm"/>
                                     </span>

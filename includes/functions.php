@@ -57,7 +57,7 @@
 	}
 
 	function show_message($message){
-		$message_box = "<div class=\"container\" id=\"message_container\" style=\"margin-top:6%;\"><div class=\"alert alert-warning alert-dismissible\" role=\"alert\" id=\"alertMessage\">
+		$message_box = "<div class=\"container\" id=\"message_container\" ><div class=\"alert alert-warning alert-dismissible\" role=\"alert\" id=\"alertMessage\">
   		<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
   			<span aria-hidden=\"true\" id=\"closeButton\">&times;</span>
   		</button> {$message}
@@ -66,44 +66,45 @@
 	}
 	
 	function make_questions(){
-		global $questions_array; 				
-		$number_of_questions = $questions_array["number_of_questions"];
-		$output = "";
-		for($i=1; $i<=$number_of_questions; $i++ ){		
-			$question = $questions_array[$i];
-			$marks=$question["marks"];
-			$negative_marks=$question["negative_marks"];
+			global $questions_array; 				
+			$number_of_questions = $questions_array["number_of_questions"];
+			$output = "";
+			for($i=1; $i<=$number_of_questions; $i++ ){		
+				$question = $questions_array[$i];
+				$marks=$question["marks"];
+				$negative_marks=$question["negative_marks"];
 
-                $output .= "<div class=\"panel panel-primary\">
-                <div class=\"panel-heading\">
-                   <h4 class=\"panel-title\" id=\"glyphicon{$i}\">
-                      <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$i}\" >
-                      Question {$i}   <span class=\"pull-right\">Marks : {$marks}  &nbsp;&nbsp; Negative Marks : {$negative_marks}</span></a>
-                   </h4>
-                </div>
-                <div id=\"collapse{$i}\" class=\"panel-collapse collapse\">
-                   <div class=\"panel-body\"><pre><code>" . $question["question"] . "</code></pre></div>
-                   <div class=\"radio spaceRadio  \">
-                      <label><input type=\"radio\" onclick= \"record_ans({$i},1)\" name=\"q{$i}op\">". $question["option1"] ."</label>
-                   </div>
-                   <div class=\"radio spaceRadio\">
-                      <label><input type=\"radio\" onclick=\"record_ans({$i},2)\" name=\"q{$i}op\">". $question["option2"] ."</label>
-                   </div>
-                   <div class=\"radio spaceRadio\">
-                      <label><input type=\"radio\" onclick=\"record_ans({$i},3)\" name=\"q{$i}op\">". $question["option3"] ."</label>
-                   </div>
-                   <div class=\"radio spaceRadio\">
-                      <label><input type=\"radio\" onclick=\"record_ans({$i},4)\" name=\"q{$i}op\">". $question["option4"] ."</label>
-                   </div>
+	                $output .= "<div class=\"panel panel-primary\">
+	                <div class=\"panel-heading\">
+	                   <h4 class=\"panel-title\" id=\"glyphicon{$i}\">
+	                      <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$i}\" >
+	                      Question {$i}   <span class=\"pull-right\">Marks : {$marks}  &nbsp;&nbsp; Negative Marks : {$negative_marks}</span></a>
+	                   </h4>
+	                </div>
+	                <div id=\"collapse{$i}\" class=\"panel-collapse collapse\">
+	                   <div class=\"panel-body\"><pre><code><xmp>" . $question["question"] . "</xmp></code></pre></div>
+	                   <div class=\"radio spaceRadio  \">
+	                      <label><input type=\"radio\" onclick= \"record_ans({$i},1)\" name=\"q{$i}op\"><xmp>". $question["option1"] ."</xmp></label>
+	                   </div>
+	                   <div class=\"radio spaceRadio\">
+	                      <label><input type=\"radio\" onclick=\"record_ans({$i},2)\" name=\"q{$i}op\"><xmp>". $question["option2"] ."</xmp></label>
+	                   </div>
+	                   <div class=\"radio spaceRadio\">
+	                      <label><input type=\"radio\" onclick=\"record_ans({$i},3)\" name=\"q{$i}op\"><xmp>". $question["option3"] ."</xmp></label>
+	                   </div>
+	                   <div class=\"radio spaceRadio\">
+	                      <label><input type=\"radio\" onclick=\"record_ans({$i},4)\" name=\"q{$i}op\"><xmp>". $question["option4"] ."</xmp></label>
+	                   </div>
 
-                   <a type=\"button\" style=\"visibility:hidden;\" value=\"Reset\" id=\"reset_button_{$i}\" class=\"btn btn-info spaceReset\" onclick=\"reset_question($i)\">Reset</a>
-                    
-                </div>
+	                   <a type=\"button\" style=\"visibility:hidden;\" value=\"Reset\" id=\"reset_button_{$i}\" class=\"btn btn-info spaceReset\" onclick=\"reset_question($i)\">Reset</a>
+	                    
+	                </div>
 
-             </div> ";             
-        }
-        return $output;
-	}
+	             </div> ";             
+	        }
+	        return $output;
+		}
+
 
 	function make_test_information_table(){
 		global $table_data_array;
@@ -111,17 +112,17 @@
 		$output="";
 
 		for ($i=1; $i<=$no_of_rows; $i++) { 
-			$table_data=$table_data_array[$i];
-			
+			$table_data = $table_data_array[$i];
+			$test_name = $table_data["test_name"];
 			$output.="<tr>
                       <td>".$table_data["test_name"]."</td>
                       <td>".$table_data["start_time"]."</td>
                       <td>".$table_data["end_time"]."</td>
                       <td>".$table_data["event_date"]."</td>
                       <td>".$table_data["duration"]."</td>
-                      <td><a href=\"view_users_of_table.php?test_name={$table_data["test_name"]}\">View Users</a></td>
-                      <td><a href=\"question_list.php?test_name={$table_data["test_name"]}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
-		              <td><a href=\"delete_test.php?test_name={$table_data["test_name"]}\" onclick=\"return confirm('Are you sure you want to delete this test?');\" ><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
+                      <td><a href=\"view_users_of_table.php?test_name=". $test_name . "\">View Users</a></td>
+                      <td><a href=\"question_list.php?test_name=". $test_name . "\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
+		              <td><a href=\"delete_test.php?test_name=". $test_name . "\" onclick=\"return confirm('Are you sure you want to delete this test?');\" ><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
                       </tr>";
 		}
 		return $output;
@@ -151,28 +152,28 @@
 	}
 
 	function get_questions_table($testname){
-		global $table_data_array;
-		$no_of_rows=$table_data_array["number_of_rows"];
-		$output="";
-		$url=$testname;
-		for ($i=1; $i<=$no_of_rows; $i++) { 
-			$table_data=$table_data_array[$i];
-			
-			$output.="<tr>
-					  <td>{$i}</td>
-		              <td>".$table_data["question"]."</td>
-		              <td>".$table_data["option1"]."</td>
-		              <td>".$table_data["option2"]."</td>
-		              <td>".$table_data["option3"]."</td>
-		              <td>".$table_data["option4"]."</td>
-		              <td>".$table_data["correct_ans"]."</td>
-		              <td>".$table_data["marks"]."</td>
-		              <td>".$table_data["negative_marks"]."</td>
-		              <td><a href=\"edit_question.php?question_id={$table_data["question_id"]}&test_name={$url}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
-		               <td><a href=\"delete_question.php?question_id={$table_data["question_id"]}&test_name={$testname}\"><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
-		              </tr>";
-		}
-		return $output;
+			global $table_data_array;
+			$no_of_rows=$table_data_array["number_of_rows"];
+			$output="";
+			$url=$testname;
+			for ($i=1; $i<=$no_of_rows; $i++) { 
+				$table_data=$table_data_array[$i];
+				
+				$output.="<tr>
+						  <td>{$i}</td>
+			              <td>".$table_data["question"]."</td>
+			              <td>".$table_data["option1"]."</td>
+			              <td>".$table_data["option2"]."</td>
+			              <td>".$table_data["option3"]."</td>
+			              <td>".$table_data["option4"]."</td>
+			              <td>".$table_data["correct_ans"]."</td>
+			              <td>".$table_data["marks"]."</td>
+			              <td>".$table_data["negative_marks"]."</td>
+			              <td><a href=\"edit_question.php?question_id={$table_data["question_id"]}&test_name={$url}\"><span class=\"glyphicon glyphicon-pencil\"></span></a></td>                     
+			               <td><a href=\"delete_question.php?question_id={$table_data["question_id"]}&test_name={$testname}\"><span class=\"glyphicon glyphicon-trash\"></span></a></td>                     
+			              </tr>";
+			}
+			return $output;
 
-	}
+		}
 ?>

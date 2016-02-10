@@ -1,9 +1,0 @@
-Total Questions : 2
-Questions Attempted : 1
-Questions Unattempted : 1
-1. Your Ans : Not attempted 
-1. Correct Answer : option1 
-Marks Scored : 0
-2. Your Ans : option2 
-2. Correct Answer : option1 
-Marks Scored : 2

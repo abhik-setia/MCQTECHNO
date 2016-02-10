@@ -1,9 +1,7 @@
 <?php
 	
-	define('DB_USER', "root"); // db user
-	define('DB_PASSWORD', ""); // db password (mention your db password here)
-	define('DB_DATABASE', "test_portal"); // database name
-	define('DB_SERVER', "localhost"); // db server
-	define('ADMIN_TABLE', "admin");	// admin table name
-	define('TESTS_TABLE', "test"); // test table name	
+	define("TEST_NAME_NOT_FOUND"," Error 404 Test Page Not Found ");
+	define("TEST_NOT_STARTED"," Sorry Bro :) But the Test has not started yet");
+	define("TEST_HAS_ENDED"," Oooohh No , You have missed the test bro :(");
+	define("USER_EXISTS"," Bro, You exists or someone has stolen your identity.");
 ?>

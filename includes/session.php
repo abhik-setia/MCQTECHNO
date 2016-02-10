@@ -54,4 +54,15 @@
 	function set_test_duration($duration){
 		$_SESSION["test_duration"] = $duration * 60; // time stored in the seconds	
 	}
+
+	function set_error_message($message){
+		$_SESSION["error_message"] =  $message;
+	}
+
+	function get_error_message(){
+		if(isset($_SESSION["error_message"])){
+			return $_SESSION["error_message"];
+		}
+		return NULL;
+	}
 ?>

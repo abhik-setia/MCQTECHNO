@@ -41,7 +41,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>
+      <title> Users Table
       </title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,6 +49,8 @@
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/test_details.css">
+      <link rel="shortcut icon" href="http://s12.postimg.org/8ta2or48d/Graphic1.png" type="image/x-icon" />
+      
    </head>
    <body>
    <?php include("../includes/header.php"); ?>

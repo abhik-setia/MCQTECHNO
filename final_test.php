@@ -67,7 +67,90 @@
                 history.pushState(null, null, 'final_test.php');
             });
 
-            $(document).ready(function(){   
+            $(document).ready(function(){
+                var nVer = navigator.appVersion;
+                var nAgt = navigator.userAgent;
+                var browserName  = navigator.appName;
+                var fullVersion  = ''+parseFloat(navigator.appVersion); 
+                var majorVersion = parseInt(navigator.appVersion,10);
+                var nameOffset,verOffset,ix;
+
+                // In Opera 15+, the true version is after "OPR/" 
+                if ((verOffset=nAgt.indexOf("OPR/"))!=-1) {
+                 browserName = "Opera";
+                 fullVersion = nAgt.substring(verOffset+4);
+                }
+                // In older Opera, the true version is after "Opera" or after "Version"
+                else if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+                 browserName = "Opera";
+                 fullVersion = nAgt.substring(verOffset+6);
+                 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+                   fullVersion = nAgt.substring(verOffset+8);
+                }
+                // In MSIE, the true version is after "MSIE" in userAgent
+                else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+                 browserName = "Microsoft Internet Explorer";
+                 fullVersion = nAgt.substring(verOffset+5);
+                }
+                // In Chrome, the true version is after "Chrome" 
+                else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+                 browserName = "Chrome";
+                 fullVersion = nAgt.substring(verOffset+7);
+                }
+                // In Safari, the true version is after "Safari" or after "Version" 
+                else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+                 browserName = "Safari";
+                 fullVersion = nAgt.substring(verOffset+7);
+                 if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+                   fullVersion = nAgt.substring(verOffset+8);
+                }
+                // In Firefox, the true version is after "Firefox" 
+                else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+                 browserName = "Firefox";
+                 fullVersion = nAgt.substring(verOffset+8);
+                }
+                // In most other browsers, "name/version" is at the end of userAgent 
+                else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+                          (verOffset=nAgt.lastIndexOf('/')) ) 
+                {
+                 browserName = nAgt.substring(nameOffset,verOffset);
+                 fullVersion = nAgt.substring(verOffset+1);
+                 if (browserName.toLowerCase()==browserName.toUpperCase()) {
+                  browserName = navigator.appName;
+                 }
+                }
+                // trim the fullVersion string at semicolon/space if present
+                if ((ix=fullVersion.indexOf(";"))!=-1)
+                   fullVersion=fullVersion.substring(0,ix);
+                if ((ix=fullVersion.indexOf(" "))!=-1)
+                   fullVersion=fullVersion.substring(0,ix);
+
+                majorVersion = parseInt(''+fullVersion,10);
+                if (isNaN(majorVersion)) {
+                 fullVersion  = ''+parseFloat(navigator.appVersion); 
+                 majorVersion = parseInt(navigator.appVersion,10);
+                }
+
+                /*document.write(''
+                 +'Browser name  = '+browserName+'<br>'
+                 +'Full version  = '+fullVersion+'<br>'
+                 +'Major version = '+majorVersion+'<br>'
+                 +'navigator.appName = '+navigator.appName+'<br>'
+                 +'navigator.userAgent = '+navigator.userAgent+'<br>'
+                )*/
+
+
+                var number_of_times_to_increment = 1;
+                var number_of_times_to_be_checked = 1;
+                if(browserName.localeCompare("Firefox")==0) {
+                   number_of_times_to_increment = 4;
+                   number_of_times_to_be_checked = 4;
+                } else if (browserName.localeCompare("Chrome") == 0) {
+                   number_of_times_to_increment = 1;
+                   number_of_times_to_be_checked = 1;
+                }
+
+
                 var number_times_warned = 0;
                 // To stop opening of the new tab
                 window.addEventListener('focus', function(){
@@ -87,15 +170,15 @@
                         } 
                         
                         if(after_confirm - before_confirm >= 10000){
-                            number_times_warned++;
+                            number_times_warned += number_of_times_to_increment;
                         }
-                        number_times_warned++;                                                
-                    }else if(number_times_warned == 1){ 
+                        number_times_warned += number_of_times_to_increment;                                                
+                    }else if(number_times_warned <= number_of_times_to_be_checked){ 
                         var before_confirm = new Date();                       
                         confirm("You are warned earlier if you try to do it again the test will be finished. You are requested not to do it again.");                        
                         var after_confirm = new Date();
                         if(after_confirm - before_confirm >= 5000){
-                            number_times_warned++;
+                            number_times_warned += number_of_times_to_increment;
                         }
                         number_times_warned++;
                     }else{                        
@@ -183,7 +266,7 @@
                           </div>
 
                         </div>
-                       <span class="pull-right spaceButton "><input id="submit_test" type="submit" name="btnSubmit" value="Submit" class="btn btn-success"></span>      
+                       <span class="pull-right spaceButton "><input id="submit_test" type="submit" name="btnSubmit" onclick="return confirm('Are you sure? You want to submit Test :) ')" value="Submit" class="btn btn-success"></span>      
                     </div>                                  
                </div>
             </div>          

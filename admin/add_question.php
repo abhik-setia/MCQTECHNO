@@ -62,7 +62,7 @@
     </style>   
 
    <body>
-        <?php include("../includes/header.php");
+        <?php include("../includes/header2.php");
           global $message;
           if(check_var($message)){
             echo(show_message($message));

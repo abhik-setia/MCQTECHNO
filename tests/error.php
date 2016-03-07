@@ -15,7 +15,7 @@
        	<link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>      
      	<link rel="stylesheet" type="text/css" href="../css/final_test.css">
      	<script type="text/javascript">
-     		history.pushState(null, null, 'final_test.php');
+     		history.pushState(null, null, 'error.php');
             window.addEventListener('popstate', function(event) {
                 history.pushState(null, null, 'final_test.php');
             });

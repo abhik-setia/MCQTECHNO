@@ -1,50 +1,61 @@
 <?php 
-	require_once'../includes/db_connect.php';
-	require_once'../includes/functions.php';
+  require_once'../includes/db_connect.php';
+  require_once'../includes/functions.php';
 
    if(isset($_GET["message"]))
    {
         $message = "Congrats you won 1 million dollars...   just joking, you just logged out. Bye Bye!!";
    }
+   if(isset($_GET["message2"]))
+   {
+        $message="YO! bro...wassup. Sorry but our super admin is watching deadpool, he has not given you rights yet :P";
+     }
 
 
-	if(isset($_POST["submit"]))
-	{
-		if(check_is_set($_POST))
-		{
-			if(check_empty($_POST))
-			{
-				$username=trim($_POST['username']);
-				$password=trim($_POST['password']);
+  if(isset($_POST["submit"]))
+  {
+    if(check_is_set($_POST))
+    {
+      if(check_empty($_POST))
+      {
+        $username=trim($_POST['username']);
+        $password=trim($_POST['password']);
 
-				if(!empty($username) && !empty($password))
-				{
-					$username=$db->mysql_prep($username);
-					$password=hash("sha256",$db->mysql_prep($password));
-          //var_dump($password);
+        if(!empty($username) && !empty($password))
+        {
+          $username=$db->mysql_prep($username);
+          $password=hash("sha256",$db->mysql_prep($password));
                $db->connect();
-               $query = "SELECT username,password FROM admin where username='{$username}' AND password='{$password}'";
-					     $user=$db->query_database($query);
-					
-					if(is_null($db->fetch_array($user)))
-					{
-						    $message = "Incorrect Details,Please Login again..";
-					}else{
+               $query = "SELECT username,password,confirm_rights FROM admin where username='{$username}' AND password='{$password}'";
+               $user=$db->query_database($query);
+               $result=$db->fetch_array($user);
+               $admin_rights=$result['confirm_rights'];
+               
+
+          if(is_null($result))
+          {
+                $message = "Incorrect Details,Please Login again..";
+                
+          }else{
+                if($admin_rights==0){
+                  redirect_to('admin_login.php?message2=true');
+                }else{
                   require_once'../includes/session.php';                  
                   set_username($username);
-						      redirect_to('create_test.php');
-					}
-				}
-				else{
-					echo "please enter details correctly";
-				}
-			}else{
-				echo "fields are empty";
+                  redirect_to('create_test.php');
+                 }
           }
-		}else{
-			echo "Data not set";
-		}
-	}
+        }
+        else{
+          echo "please enter details correctly";
+        }
+      }else{
+        echo "fields are empty";
+          }
+    }else{
+      echo "Data not set";
+    }
+  }
 
  ?>
 
@@ -100,7 +111,7 @@
                            <label for="username" class=" spaceX"style="float:left">Username</label>    
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
                               <div class="form-group">
-                              	 <input type="text" name="username" id="username" required class="form-control input-sm" placeholder="Username"/>
+                                 <input type="text" name="username" id="username" value="<?php if(!empty($username)) echo $username; ?>" required class="form-control input-sm" placeholder="Username"/>
                               </div>
                            </div>
                         </div>
@@ -108,16 +119,16 @@
                            <label for="password" class=" spaceX"style="float:left">Password</label>    
                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
                               <div class="form-group">
-                              	 <input type="password" name="password" required id="password" class="form-control input-sm" placeholder="Password"/>
+                                 <input type="password" name="password" required id="password" class="form-control input-sm" placeholder="Password"/>
                               </div>
                            </div>
                         </div>
                         <div class="row">
-                        	<div>
+                          <div>
                            <center>
-                        	<input type="submit" value="Login" name="submit" class="btn btn-success ">
+                          <input type="submit" value="Login" name="submit" class="btn btn-success ">
                            </center>
-                        	</div>
+                          </div>
                         </div>
 
                      </form>

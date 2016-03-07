@@ -1,0 +1,40 @@
+Total Questions : 12
+Questions Attempted : 12
+Questions Unattempted : 0
+Marks Scored : 9 
+1. Your Ans : option1 
+1. Correct Answer : option3 
+Marks Scored : -1
+2. Your Ans : option4 
+2. Correct Answer : option1 
+Marks Scored : -2
+3. Your Ans : option1 
+3. Correct Answer : option4 
+Marks Scored : -1
+4. Your Ans : option2 
+4. Correct Answer : option2 
+Marks Scored : 3
+5. Your Ans : option1 
+5. Correct Answer : option2 
+Marks Scored : -1
+6. Your Ans : option2 
+6. Correct Answer : option1 
+Marks Scored : -1
+7. Your Ans : option2 
+7. Correct Answer : option2 
+Marks Scored : 3
+8. Your Ans : option2 
+8. Correct Answer : option2 
+Marks Scored : 3
+9. Your Ans : option4 
+9. Correct Answer : option3 
+Marks Scored : -1
+10. Your Ans : option3 
+10. Correct Answer : option3 
+Marks Scored : 5
+11. Your Ans : option1 
+11. Correct Answer : option1 
+Marks Scored : 3
+12. Your Ans : option3 
+12. Correct Answer : option2 
+Marks Scored : -1

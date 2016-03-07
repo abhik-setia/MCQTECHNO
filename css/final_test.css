@@ -35,7 +35,7 @@
 
          @font-face {
              font-family: Champagne;
-             src: url(../fonts/xyz2.ttf);
+             src: url("../fonts/Champagne&LimousinesBoldItalic.ttf");
          }
          #test_name_header{
             font-size:3em; 
@@ -52,4 +52,5 @@
          }
          xmp{
             margin: 0%;
+            word-wrap: normal;
          }

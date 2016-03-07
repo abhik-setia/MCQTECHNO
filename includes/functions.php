@@ -6,6 +6,12 @@
 		}
 	}
 
+	function remove_all_session_information(){
+		foreach ($_SESSION as $key => $value){			
+    		unset($value);    	
+		}
+	}
+
 	function make_sql_date_time($string){		
 		$array_of_strings = explode("/", $string);		
 		$month = $array_of_strings[0];

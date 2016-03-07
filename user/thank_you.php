@@ -91,7 +91,7 @@
       <title> Thank You</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="../css/bootstrap.min.css" >
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
       <script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
       <script type="text/javascript " src="../js/bootstrap.min.js"></script>
       <link rel="stylesheet" type="text/css" href="../css/final_test.css">  
@@ -113,12 +113,14 @@
                 <div class="panel-heading">
                 <h2>
                     Thank You!! for taking part in <?php echo get_test_name();?> :) <a href="http://goo.gl/forms/o51nAv1y6g" class="btn btn-success btn-lg pull-right" role="button">FeedBack :)</a>
+                    <!-- <a href="../admin/meet_the_developers.php" class="btn btn-info btn-lg pull-right" style="margin-right:1%;" role="button">Meet The Developers</a> -->
                 </h2>
             </div>
             <div class="panel-body ">
-                <li class="list-group-item"><h3>Your Score : <?php global $score; echo $score; ?></h3></li>
-                <li class="list-group-item"><h3>Correct Answers : <?php global $number_of_correct_ans; echo $number_of_correct_ans; ?></h3></li>
-                <li class="list-group-item"><h3>Wrong Answers : <?php global $number_of_wrong_ans; echo $number_of_wrong_ans; ?></h3></li>
+                <!-- <li class="list-group-item"><h3>Your Score : <?php //global $score; echo $score; ?></h3></li>
+                <li class="list-group-item"><h3>Correct Answers : <?php //global $number_of_correct_ans; echo $number_of_correct_ans; ?></h3></li>
+                <li class="list-group-item"><h3>Wrong Answers : <?php //global $number_of_wrong_ans; echo $number_of_wrong_ans; ?></h3></li> -->
+                <li class="list-group-item"><h3>Your score has been calculated and you will be informed if selected for the next round.</h3></li>
                 <li class="list-group-item"><h3>Attempted Questions : <?php global $number_of_attempted_questions; echo $number_of_attempted_questions; ?></h3></li>
                 <li class="list-group-item"><h3>Unattempted Questions : <?php global $number_of_unattempted_questions; echo $number_of_unattempted_questions; ?></h3></li>            
              </div>

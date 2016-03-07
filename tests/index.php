@@ -11,20 +11,24 @@
 		if($result != NULL){
 			if($db->number_of_rows($result) > 0){
 				$row = $db->fetch_array($result);
-				$test_start_unix_timestamp = strtotime($row["start_time"]);
-				$test_end_unix_timestamp = strtotime($row["end_time"]);
-				$current_unix_timestamp = strtotime("now");
-				if($current_unix_timestamp >= $test_start_unix_timestamp && $current_unix_timestamp <= $test_end_unix_timestamp ){
+				//$test_start_unix_timestamp = strtotime($row["start_time"]);
+				//$test_end_unix_timestamp = strtotime($row["end_time"]);
+				//$current_unix_timestamp = strtotime("now");
+                                //$current_unix_timestamp = strtotime(date('Y-m-d H:i:s') ) + 4 * 60 * 60 + 30*60 ;
+				//if($current_unix_timestamp >= $test_start_unix_timestamp && $current_unix_timestamp <= $test_end_unix_timestamp ){
 					set_test_name($test_name);
 					set_test_duration($row["duration"]);
 					redirect_to("../user/user_registration.php");
-				}else if($current_unix_timestamp < $test_start_unix_timestamp){
-					set_error_message(TEST_NOT_STARTED);					
-					redirect_to("error.php");
-				}else if($current_unix_timestamp > $test_end_unix_timestamp){								
-					set_error_message(TEST_HAS_ENDED);					
-					redirect_to("error.php");
-				}
+				//}else if($current_unix_timestamp < $test_start_unix_timestamp){
+				//	set_error_message(TEST_NOT_STARTED);					
+				//	redirect_to("error.php");
+				//}else if($current_unix_timestamp > $test_end_unix_timestamp){								
+				//	set_error_message(TEST_HAS_ENDED);					
+				//	redirect_to("error.php");
+				//}
+			}else{
+				set_error_message(TEST_NAME_NOT_FOUND);
+				redirect_to("error.php");	
 			}
 		}else{
 			set_error_message(TEST_NAME_NOT_FOUND);

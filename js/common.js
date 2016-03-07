@@ -5,6 +5,24 @@ $(document).ready(function(){
 		$("#alertMessage").hide(2000);
         $("#message_container").hide(2000);
 	});
+
+    function is_valid_phone_number(phone_number){
+        for(var i=0;i < phone_number.length ; i++){
+            if(phone_number[i] < '0' || phone_number[i] > '9'){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    $("#phone_number").focusout(function(){
+        phone_number = $("#phone_number").val();
+        if(phone_number.length < 10){
+            $("#phone_number").css("borderColor","Red");            
+        }else if(!is_valid_phone_number(phone_number)){
+            $("#phone_number").css("borderColor","Red");            
+        }    
+    });
 });	
 
 function getCookie(name) {
@@ -108,25 +126,10 @@ function reset_question (question_no) {
     remove_glyphicon(question_no);
 
     var ele=document.getElementsByName("q"+question_no+"op");
-    for(var i=0;i<ele.length;i++)
-    {
+    for(var i=0;i<ele.length;i++){
         ele[i].checked=false;
     }
      document.getElementById("reset_button_"+question_no).style.visibility="hidden";
     
 
 }
-// function active_pagination(number) {
-//     var pagination_id=document.getElementById("pagination_id_"+number);
-//     var active_or_not=pagination_id.getAttribute("class");
-//     if(active_or_not=="active")
-//     pagination_id.removeAttribute("class");
-//     else
-//     pagination_id.setAttribute("class","active");
-        
-
-// }
-
-
-
-
